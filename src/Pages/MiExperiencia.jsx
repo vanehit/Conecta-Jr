@@ -14,7 +14,7 @@ function MiExperiencia() {
               Mi experiencia en el mundo de la programación
             </h2>
             <p className="lead mb-4">
-              Desde siempre me ha fascinado entender cómo funciona la tecnología detrás de cada clic. Después de recibirme como <strong>Diseñadora Gráfica</strong>, decidí adentrarme en el <strong>Desarrollo Web</strong>, combinando creatividad con código. 🚀
+              Hola, soy <strong>Vanesa Paola Soria</strong>, una <strong>Desarrolladora Web Junior</strong>. Este blog es una forma de compartir mi experiencia personal en el mundo del desarrollo web. Sé lo difícil que puede ser comenzar en este campo y lo importante que es contar con buenas fuentes de información y apoyo. Al crear <strong>Conecta Jr</strong>, mi objetivo no solo es documentar mi propio proceso de aprendizaje, sino también inspirar a otros a seguir sus sueños en la programación y el desarrollo web.
             </p>
 
             {/* Línea de Tiempo */}
