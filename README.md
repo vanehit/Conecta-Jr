@@ -9,6 +9,8 @@ Currently, two official plugins are available:
 
 # Conecta JR Blog
 
+Puedes ver el blog en vivo aquí: [Conecta JR Blog](https://conecta-jr.vercel.app)
+
 **Conecta JR** es un blog donde compartimos contenido sobre tecnología, programación, desarrollo web y más. Nuestro objetivo es crear una comunidad de aprendizaje y colaboración entre desarrolladores y entusiastas de la tecnología.
 
 ## Descripción
