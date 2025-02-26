@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import logo from "../../assets/logo-Conecta-jr-icono.png";
 
 function CustomNavbar() {
   return (
@@ -8,7 +7,7 @@ function CustomNavbar() {
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
-            src={logo}
+            src="/images/logo-Conecta-jr-icono.png"  
             alt="Conecta Jr Logo"
             style={{ width: "150px", marginRight: "5px" }}
           />

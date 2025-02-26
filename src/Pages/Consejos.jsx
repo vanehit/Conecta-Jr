@@ -13,7 +13,7 @@ function Consejos() {
           {/* Consejo 1 */}
           <Col md={4} className="mb-4">
             <Card className="shadow-lg">
-              <Card.Img variant="top" src="src/assets/espacio-trabajo.png" />
+              <Card.Img variant="top" src="/images/espacio-trabajo.png" alt="espacio de trabajo" />
               <Card.Body>
                 <Card.Title>Practica diariamente</Card.Title>
                 <Card.Text>
@@ -26,7 +26,7 @@ function Consejos() {
           {/* Consejo 2 */}
           <Col md={4} className="mb-4">
             <Card className="shadow-lg">
-              <Card.Img variant="top" src="src/assets/comunidad.png" />
+              <Card.Img variant="top" src="/images/comunidad.png" alt="comunidad" />
               <Card.Body>
                 <Card.Title>Participa en la comunidad</Card.Title>
                 <Card.Text>
@@ -42,7 +42,7 @@ function Consejos() {
           {/* Consejo 3 */}
           <Col md={4} className="mb-4">
             <Card className="shadow-lg">
-              <Card.Img variant="top" src="src/assets/recursos-confiables.png" />
+              <Card.Img variant="top" src="/images/recursos-confiables.png" alt="recursos confiables" />
               <Card.Body>
                 <Card.Title>Consulta recursos confiables</Card.Title>
                 <Card.Text>
@@ -61,7 +61,7 @@ function Consejos() {
           {/* Consejo 4 */}
           <Col md={4} className="mb-4">
             <Card className="shadow-lg">
-              <Card.Img variant="top" src="src/assets/Aprende-a-depurar.png" />
+              <Card.Img variant="top" src="/images/Aprende-a-depurar.png" alt="aprende a depurar" />
               <Card.Body>
                 <Card.Title>Aprende a depurar</Card.Title>
                 <Card.Text>
@@ -74,7 +74,7 @@ function Consejos() {
           {/* Consejo 5 */}
           <Col md={4} className="mb-4">
             <Card className="shadow-lg">
-              <Card.Img variant="top" src="src/assets/proyectos-propios.png" />
+              <Card.Img variant="top" src="/images/proyectos-propios.png" alt="proyectos propios" />
               <Card.Body>
                 <Card.Title>Haz proyectos propios</Card.Title>
                 <Card.Text>
@@ -87,7 +87,7 @@ function Consejos() {
           {/* Consejo 6 */}
           <Col md={4} className="mb-4">
             <Card className="shadow-lg">
-              <Card.Img variant="top" src="src/assets/editor-codigo.png" />
+              <Card.Img variant="top" src="/images/editor-codigo.png" alt="editor de código" />
               <Card.Body>
                 <Card.Title>Domina un editor de código</Card.Title>
                 <Card.Text>

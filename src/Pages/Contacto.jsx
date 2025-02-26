@@ -20,10 +20,10 @@ function Contacto() {
 
     emailjs
       .send(
-        "TU_SERVICE_ID", // Reemplázalo con tu Service ID
-        "TU_TEMPLATE_ID", // Reemplázalo con tu Template ID
+        "service_rqb9rgf", 
+        "ConectaJR", 
         formData,
-        "TU_USER_ID" // Reemplázalo con tu Public Key
+        "c1l9p5TF_aLwg_h6T" 
       )
       .then(() => {
         alert("Mensaje enviado con éxito!");
