@@ -6,6 +6,7 @@ import MiExperiencia from "./Pages/MiExperiencia";
 import Consejos from "./Pages/Consejos";
 import Contacto from "./Pages/Contacto";
 import CustomNavbar from "./components/Nabvar/Navbar";
+import Proyectos from "./Pages/Proyectos";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/mi-experiencia" element={<MiExperiencia />} />
         <Route path="/consejos" element={<Consejos />} />
+        <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
     </BrowserRouter>
