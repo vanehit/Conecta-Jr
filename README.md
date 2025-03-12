@@ -12,6 +12,7 @@ Currently, two official plugins are available:
 Puedes ver el blog en vivo aquí: [Conecta JR Blog](https://conecta-jr.vercel.app)
 
 **Conecta JR** es un blog donde compartimos contenido sobre tecnología, programación, desarrollo web y más. Nuestro objetivo es crear una comunidad de aprendizaje y colaboración entre desarrolladores y entusiastas de la tecnología.
+**El Dashboard de Tendencias en GitHub permite visualizar de manera interactiva cuáles son los lenguajes de programación más utilizados en los repositorios con más de 10,000 estrellas en GitHub. La información se obtiene a través de la GitHub API, y se muestra en gráficos dinámicos. Además muestra Noticias de Tecnología en tiempo real.
 
 ## Descripción
 
@@ -23,6 +24,10 @@ En **Conecta JR**, podrás encontrar artículos, tutoriales y recursos útiles p
 - **Comentarios**: Los usuarios pueden dejar sus opiniones sobre cada publicación.
 - **Búsqueda**: Encuentra fácilmente artículos usando el sistema de búsqueda por palabras clave.
 - **Responsive**: El blog está optimizado para verse bien en cualquier dispositivo, ya sea móvil, tablet o escritorio.
+- **Gráfico de Barras: Muestra los lenguajes de programación más populares en repositorios con +10,000 estrellas.
+- **Lista de Lenguajes: Visualización de la cantidad de repositorios por lenguaje.
+- **Consumo de API: Obtención de datos en tiempo real desde GitHub y gnews.io.
+- **Interfaz Responsiva: Optimizada para móviles y escritorio.
 
 ## Tecnologías Utilizadas
 
@@ -44,9 +49,11 @@ Para comenzar a trabajar con el proyecto en tu máquina local, sigue estos pasos
     cd Conecta-Jr
 3. Instala las dependencias:
     npm install
-4. Inicia el servidor de desarrollo:
+4. Crea un archivo .env en la raíz del proyecto y agrega tu API Key de GitHub:
+    VITE_GITHUB_API_KEY=tu_api_key_aqui
+5. Inicia el servidor de desarrollo:
     npm run dev
-5. Abre tu navegador y ve a http://localhost:3000 para ver la aplicación en funcionamiento.
+6. Abre tu navegador y ve a http://localhost:3000 para ver la aplicación en funcionamiento.
 
 
 ## Backend (Futuro)
