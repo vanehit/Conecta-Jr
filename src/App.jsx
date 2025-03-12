@@ -7,6 +7,8 @@ import Consejos from "./Pages/Consejos";
 import Contacto from "./Pages/Contacto";
 import CustomNavbar from "./components/Nabvar/Navbar";
 import Proyectos from "./Pages/Proyectos";
+import News from "./components/Dashboard/News";
+import TrendingLanguages from "./components/Dashboard/TrendingLanguages";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Route path="/consejos" element={<Consejos />} />
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/news" element={<News />} /> 
+        <Route path="/tendencias" element={<TrendingLanguages />} />
       </Routes>
     </BrowserRouter>
     </>

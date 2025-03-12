@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-
 // Variables de colores y tipografía
 $primary-color: #007bff;
 $secondary-color: #6c757d;
 $dark-bg: #343a40;
 $text-light: #f8f9fa;
+$light-bg: #f7f7f7; // Nuevo color para el fondo de las tarjetas
 
 // Estilos generales
 html, body, #root {
@@ -22,17 +22,11 @@ main {
   flex: 1; 
 }
 
-//Navbar
+// Navbar
 .navbar {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .hero-banner {
-    padding-top: 60px;
-  }
-  
-  
+  margin: 0;
+  padding: 0;
+}
 
 // Hero Banner
 .hero-banner {
@@ -51,53 +45,64 @@ main {
   }
 }
 
+// Estilos para las tarjetas
 .card {
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  
+  background-color: $light-bg;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    color: $primary-color;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .btn-custom {
+    background-color: $primary-color;
+    transition: all 0.3s ease-in-out;
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-    }
-  
-    .card-title {
-      font-size: 1.4rem;
-      color: $primary-color;
-    }
-  
-    .card-text {
-      font-size: 1rem;
-      line-height: 1.5;
+      background-color: darken($primary-color, 10%);
+      transform: scale(1.05);
     }
   }
+}
+
+.container {
+  padding: 20px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+// Mejoramos el espaciado en móviles
+@media (max-width: 768px) {
   .container {
-    padding: 20px;
+    padding: 10px;
   }
-  
-  .row {
+
+  .card {
     margin-bottom: 20px;
   }
-  
-  // Mejoramos el espaciado en móviles
-  @media (max-width: 768px) {
-    .container {
-      padding: 10px;
-    }
-  
-    .card {
-      margin-bottom: 20px;
-    }
-  
-    .navbar {
-      text-align: center;
-    }
-  
-    .navbar-brand img {
-      width: 120px; // Ajustamos el logo en pantallas pequeñas
-    }
+
+  .navbar {
+    text-align: center;
   }
-    
+
+  .navbar-brand img {
+    width: 120px; // Ajustamos el logo en pantallas pequeñas
+  }
+}
 
 @keyframes glow {
   0%, 100% {
@@ -108,29 +113,20 @@ main {
   }
 }
 
-// Botón personalizado
-.btn-custom {
-    background-color: $primary-color;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: darken($primary-color, 10%);
-      transform: scale(1.05);
-    }
+// Animaciones de entrada
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  //page MiExperiencia
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease-in-out forwards;
-  }
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
+
 // Footer
 .footer {
   background-color: $dark-bg;
@@ -139,4 +135,42 @@ main {
   text-align: center;
   font-size: 0.9rem;
   margin-top: auto;
+}
+/* Estilos personalizados para el Sidebar */
+.sidebar {
+  width: 100%; /* Ocupa el 30% de la pantalla */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: #343a40; /* Fondo oscuro */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Cuando está abierto */
+}
+
+.sidebar.closed {
+  transform: translateX(-100%); /* Cuando está cerrado */
+}
+
+.sidebar .text-white {
+  color: #fff;
+}
+
+.sidebar .nav-link {
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #495057; /* Color de fondo cuando se pasa el ratón por encima */
+}
+
+.d-md-none {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .d-md-none {
+    display: block;
+  }
 }
