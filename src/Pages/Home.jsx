@@ -55,6 +55,30 @@ function Home() {
         </Row>
       </Container>
 
+      <section className="container py-5">
+        <h2 className="text-center text-primary font-weight-bold mb-4">¿Qué hace un desarrollador junior?</h2>
+        <div className="row justify-content-center">
+          <div className="col-lg-8 col-md-10 col-sm-12">
+            <p className="lead text-muted mb-4">
+              Un desarrollador junior se encarga de tareas como el mantenimiento de código, corrección de errores y desarrollo de pequeñas funcionalidades. 
+              También trabaja en equipo con otros desarrolladores para mejorar sus habilidades y aprender buenas prácticas. 
+              Sin embargo, las responsabilidades pueden variar dependiendo de la empresa, y es crucial que el desarrollador continúe formándose para mejorar y expandir sus habilidades.
+            </p>
+            <ul className="list-group">
+              <li className="list-group-item"><strong>🔧 Mantenimiento de código:</strong> Mantiene y actualiza el código existente, asegurándose de que esté limpio y eficiente.</li>
+              <li className="list-group-item"><strong>🐞 Corrección de errores:</strong> Detecta y soluciona fallos en el código, mejorando la estabilidad del proyecto.</li>
+              <li className="list-group-item"><strong>⚙️ Desarrollo de nuevas funcionalidades:</strong> Ayuda en la implementación de nuevas características bajo la supervisión de desarrolladores más experimentados.</li>
+              <li className="list-group-item"><strong>🤝 Trabajo en equipo:</strong> Colabora con otros desarrolladores para aprender y aplicar buenas prácticas de programación.</li>
+            </ul>
+            <p className="text-center mt-4 p-3 bg-dark text-white font-weight-bold border border-light rounded">
+              <strong>Recuerda:</strong> Las responsabilidades pueden variar dependiendo de la empresa y el equipo. Es importante seguir aprendiendo y mejorando tus habilidades continuamente.
+            </p>
+
+          </div>
+        </div>
+      </section>
+
+
       <Footer />
     </>
   );
