@@ -55,6 +55,24 @@ function Proyectos() {
               </Col>
             </Row>
           </Col>
+
+          {/* Proyecto 3: Calculadora */}
+          <Col md={6} className="mb-4">
+              <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
+              <Card.Img variant="top" src="/images/calculadora.png" alt="Calculadora JS" />
+              <Card.Body>
+                <Card.Title style={{ color: '#FF6347' }}>Calculadora JS</Card.Title>
+                <Card.Text>Calculadora sencilla creada con HTML, CSS y JavaScript.</Card.Text>
+                <Button variant="dark" href="https://github.com/vanehit/calculadora.git" target="_blank" className="m-1">
+                  Ver Código <FaGithub />
+                </Button>
+                <Button variant="primary" href="#" target="_blank" className="m-1">
+                  Ver Demo <FaExternalLinkAlt />
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
         </Row>
       </Container>
 
