@@ -115,7 +115,38 @@ function Consejos() {
           </Col>
         </Row>
 
+        <Row className="mt-4 text-center">
+  <Col md={12}>
+    <Card className="shadow-sm">
+      <Card.Body>
+        <Card.Text className="text-muted">
+          📌 Los recursos mencionados son creados y mantenidos por sus respectivos autores.  
+          Asegúrate de visitar sus sitios y canales para más información y apoyo.  
+        </Card.Text>
+        <Card.Text className="mt-2">
+          🎓 Durante mi aprendizaje, estos creadores fueron clave para ayudarme a entender mejor el código.  
+          Gracias a sus explicaciones y recursos, pude avanzar en mi camino como programador.  
+          ¡Espero que también te sean útiles en tu aprendizaje! 🚀  
+        </Card.Text>
+        </Card.Body>
+      </Card>
+    </Col>
+  </Row>
+
+
         {/* Sección de Youtubers Populares */}
+        <Col md={12} className="mb-4">
+          <Card className="shadow-lg text-center">
+            <Card.Body>
+              <Card.Title>📢 Agradecimiento</Card.Title>
+              <Card.Text>
+                Los recursos y canales recomendados han sido creados por programadores experimentados y comunidades de aprendizaje. 
+                Todo el crédito es para ellos, ¡agradecemos su trabajo y dedicación para compartir conocimiento! 💡✨
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
         <Row className="mt-5">
           <Col>
             <h3 className="text-center">🎥 Programadores Populares en YouTube</h3>
@@ -156,7 +187,7 @@ function Consejos() {
               <Card.Body>
                 <Card.Title>Midudev</Card.Title>
                 <Card.Text>
-                  Contenido en español sobre programación, React y el mundo del desarrollo web.
+                DESARROLLO con JAVASCRIPT. Programación web y FULL STACK con React, Node.js, HTML, CSS, Tailwind, Next.js y Deno.
                 </Card.Text>
                 <Button variant="danger" href="https://www.youtube.com/c/midudev" target="_blank">
                   Ver en YouTube <FaYoutube />
@@ -201,6 +232,20 @@ function Consejos() {
                   Canal en español con consejos, tutoriales y noticias del mundo de la programación.
                 </Card.Text>
                 <Button variant="danger" href="https://www.youtube.com/c/holaMundoDev" target="_blank">
+                  Ver en YouTube <FaYoutube />
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
+          <Col md={4} className="mb-4">
+            <Card className="shadow-lg">
+              <Card.Body>
+                <Card.Title>Carlos Azaustre - Aprende JavaScript</Card.Title>
+                <Card.Text>
+                💻 PROGRAMACIÓN y DESARROLLO WEB con tecnologías JAVASCRIPT, REACT, NODEJS, FIREBASE, etc...
+                </Card.Text>
+                <Button variant="danger" href="https://www.youtube.com/watch?v=chWo9J7AoIs&ab_channel=CarlosAzaustre-AprendeJavaScript" target="_blank">
                   Ver en YouTube <FaYoutube />
                 </Button>
               </Card.Body>
