@@ -125,7 +125,7 @@ function Consejos() {
         </Card.Text>
         <Card.Text className="mt-2">
           🎓 Durante mi aprendizaje, estos creadores fueron clave para ayudarme a entender mejor el código.  
-          Gracias a sus explicaciones y recursos, pude avanzar en mi camino como programador.  
+          Gracias a sus explicaciones y recursos, pude avanzar en mi camino como programadora.  
           ¡Espero que también te sean útiles en tu aprendizaje! 🚀  
         </Card.Text>
         </Card.Body>
