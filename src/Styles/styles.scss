@@ -85,6 +85,16 @@ main {
   margin-bottom: 20px;
 }
 
+/* Estilo global para las fechas de la línea de tiempo */
+.vertical-timeline-element-date {
+  color: #f3eaea !important; /* color oscuro para buen contraste */
+  font-weight: bold;
+  background: transparent;
+  padding: 0.5rem;
+  z-index: 1; /* por si alguna fecha queda detrás */
+}
+
+
 // Mejoramos el espaciado en móviles
 @media (max-width: 768px) {
   .container {
@@ -101,6 +111,11 @@ main {
 
   .navbar-brand img {
     width: 120px; // Ajustamos el logo en pantallas pequeñas
+  }
+
+  // Ajustamos color de fecha en la línea de tiempo para que se vea bien en pantallas chicas
+  .vertical-timeline-element-date {
+    color: #0c0c0c !important;
   }
 }
 
