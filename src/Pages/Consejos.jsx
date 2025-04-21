@@ -116,22 +116,140 @@ function Consejos() {
         </Row>
 
         <Row className="mt-4 text-center">
-  <Col md={12}>
-    <Card className="shadow-sm">
-      <Card.Body>
-        <Card.Text className="text-muted">
-          📌 Los recursos mencionados son creados y mantenidos por sus respectivos autores.  
-          Asegúrate de visitar sus sitios y canales para más información y apoyo.  
-        </Card.Text>
-        <Card.Text className="mt-2">
-          🎓 Durante mi aprendizaje, estos creadores fueron clave para ayudarme a entender mejor el código.  
-          Gracias a sus explicaciones y recursos, pude avanzar en mi camino como programadora.  
-          ¡Espero que también te sean útiles en tu aprendizaje! 🚀  
-        </Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
-  </Row>
+      <Col md={12}>
+        <Card className="shadow-sm">
+          <Card.Body>
+            <Card.Text className="text-muted">
+              📌 Los recursos mencionados son creados y mantenidos por sus respectivos autores.  
+              Asegúrate de visitar sus sitios y canales para más información y apoyo.  
+            </Card.Text>
+            <Card.Text className="mt-2">
+              🎓 Durante mi aprendizaje, estos creadores fueron clave para ayudarme a entender mejor el código.  
+              Gracias a sus explicaciones y recursos, pude avanzar en mi camino como programadora.  
+              ¡Espero que también te sean útiles en tu aprendizaje! 🚀  
+            </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="mt-5">
+        <Col>
+          <h3 className="text-center">🧪 Plataformas para Practicar y Hacer Tests Técnicos</h3>
+          <p className="text-center">Recursos gratuitos y utilizados por empresas reales para evaluar habilidades técnicas:</p>
+        </Col>
+      </Row>
+
+      <Row className="text-center">
+        <Col md={4} className="mb-4">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title>HackerEarth</Card.Title>
+              <Card.Text>Plataforma con desafíos reales y pruebas de empresas.</Card.Text>
+              <Button variant="secondary" href="https://www.hackerearth.com" target="_blank">
+                Ir al sitio <FaExternalLinkAlt />
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4} className="mb-4">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title>Codility</Card.Title>
+              <Card.Text>Ideal para preparar entrevistas técnicas con tests automatizados.</Card.Text>
+              <Button variant="secondary" href="https://www.codility.com" target="_blank">
+                Ir al sitio <FaExternalLinkAlt />
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4} className="mb-4">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title>TestGorilla</Card.Title>
+              <Card.Text>Pruebas técnicas para backend, frontend y fullstack.</Card.Text>
+              <Button variant="secondary" href="https://www.testgorilla.com" target="_blank">
+                Ir al sitio <FaExternalLinkAlt />
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4} className="mb-4">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title>Kaggle</Card.Title>
+              <Card.Text>Datasets en CSV para practicar análisis y conversión a JSON.</Card.Text>
+              <Button variant="secondary" href="https://www.kaggle.com" target="_blank">
+                Ir al sitio <FaExternalLinkAlt />
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4} className="mb-4">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title>LeetCode</Card.Title>
+              <Card.Text>Busca retos con etiquetas como "CSV processing" o "JSON parsing".</Card.Text>
+              <Button variant="secondary" href="https://leetcode.com" target="_blank">
+                Ir al sitio <FaExternalLinkAlt />
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={4} className="mb-4">
+          <Card className="shadow-sm">
+            <Card.Body>
+              <Card.Title>Frontend Mentor</Card.Title>
+              <Card.Text>Desafíos de maquetado frontend con HTML, CSS y JS.</Card.Text>
+              <Button variant="secondary" href="https://www.frontendmentor.io" target="_blank">
+                Ir al sitio <FaExternalLinkAlt />
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>  
+
+      <Col md={4} className="mb-4">
+        <Card className="shadow-sm">
+          <Card.Body>
+            <Card.Title>Codewars</Card.Title>
+            <Card.Text>Práctica con pequeños desafíos (katas) para mejorar en JS.</Card.Text>
+            <Button variant="secondary" href="https://www.codewars.com" target="_blank">
+              Ir al sitio <FaExternalLinkAlt />
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+
+      <Col md={4} className="mb-4">
+        <Card className="shadow-sm">
+          <Card.Body>
+            <Card.Title>Selenium HQ</Card.Title>
+            <Card.Text>Documentación para pruebas automatizadas en navegador.</Card.Text>
+            <Button variant="secondary" href="https://www.selenium.dev" target="_blank">
+              Ir al sitio <FaExternalLinkAlt />
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+
+      <Col md={4} className="mb-4">
+        <Card className="shadow-sm">
+          <Card.Body>
+            <Card.Title>Spring Boot Guides</Card.Title>
+            <Card.Text>Guías para configurar tests automatizados con Spring.</Card.Text>
+            <Button variant="secondary" href="https://spring.io/guides" target="_blank">
+              Ir al sitio <FaExternalLinkAlt />
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
+
 
 
         {/* Sección de Youtubers Populares */}
