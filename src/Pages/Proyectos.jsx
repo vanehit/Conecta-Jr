@@ -9,71 +9,86 @@ function Proyectos() {
   return (
     <>
       <Container className="py-5">
-        <h1 className="text-center mb-5" style={{ color: '#FF6347' }}>Mis Proyectos</h1>
+        <h1 className="text-center mb-5" style={{ color: '#212529' }}>Mis Proyectos</h1>
         <p className="text-center mb-5" style={{ color: '#555' }}>
           La página de Proyectos tiene como propósito servir como un espacio de aprendizaje práctico para desarrolladores junior. Aquí se compartirán pequeños proyectos utilizando tecnologías clave como React, Vite, Sass, Axios y Git. La idea es que los participantes puedan explorar, aprender y contribuir en el desarrollo de aplicaciones reales, mientras mejoran sus habilidades técnicas.
         </p>
 
         <Row>
-          {/* Columna para el Sidebar */}
-          <Col md={3} className="mb-4">
-            <Sidebar />
-          </Col>
+        {/* Columna para el Sidebar */}
+        <Col md={3} className="mb-4">
+          <Sidebar />
+        </Col>
 
-          {/* Columna para los proyectos */}
-          <Col md={9} className="mb-4">
-            <Row>
-              {/* Proyecto 1 */}
-              <Col md={6} className="mb-4">
-                <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
-                  <Card.Img variant="top" src="/images/TodoList.png" alt="To-Do List" />
-                  <Card.Body>
-                    <Card.Title style={{ color: '#FF6347' }}>To-Do List</Card.Title>
-                    <Card.Text>Aplicación de lista de tareas simple creada con React y Bootstrap.</Card.Text>
-                    <Button variant="dark" href="https://github.com/vanehit/Lista-De-tareas.git" target="_blank" className="m-1">
-                      Ver Código <FaGithub />
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              {/* Proyecto 2 */}
-              <Col md={6} className="mb-4">
-                <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
-                  <Card.Img variant="top" src="/images/ecommerce.png" alt="E-commerce React" />
-                  <Card.Body>
-                    <Card.Title style={{ color: '#FF6347' }}>E-commerce React</Card.Title>
-                    <Card.Text>Tienda en línea con React (Vite) y MongoDB, incluyendo carrito.</Card.Text>
-                    <Button variant="dark" href="https://github.com/vanehit/ecommerce-react-vite.git" target="_blank" className="m-1">
-                      Ver Código <FaGithub />
-                    </Button>
-                    <Button variant="primary" href="#" target="_blank" className="m-1">
-                      Ver Demo <FaExternalLinkAlt />
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Col>
-
-          {/* Proyecto 3: Calculadora */}
-          <Col md={6} className="mb-4">
+        {/* Columna para los proyectos */}
+        <Col md={9} className="mb-4">
+          <Row>
+            {/* Proyecto 1: Modal Básico */}
+            <Col md={6} className="mb-4">
               <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
-              <Card.Img variant="top" src="/images/calculadora.png" alt="Calculadora JS" />
-              <Card.Body>
-                <Card.Title style={{ color: '#FF6347' }}>Calculadora JS</Card.Title>
-                <Card.Text>Calculadora sencilla creada con HTML, CSS y JavaScript.</Card.Text>
-                <Button variant="dark" href="https://github.com/vanehit/calculadora.git" target="_blank" className="m-1">
-                  Ver Código <FaGithub />
-                </Button>
-                <Button variant="primary" href="#" target="_blank" className="m-1">
-                  Ver Demo <FaExternalLinkAlt />
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+                <Card.Img variant="top" src="/images/modal-basico.png" alt="Modal Básico" />
+                <Card.Body>
+                  <Card.Title style={{ color: '#28a745' }}>Modal Básico</Card.Title>
+                  <Card.Text>
+                    Ventana emergente simple creada con HTML, CSS y JavaScript para mostrar información importante.
+                  </Card.Text>
+                  <Button variant="dark" href="https://github.com/vanehit/Modal-B-sico.git" target="_blank" className="m-1">
+                    Ver Código <FaGithub />
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
 
-        </Row>
+            {/* Proyecto 2: To-Do List */}
+            <Col md={6} className="mb-4">
+              <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
+                <Card.Img variant="top" src="/images/TodoList.png" alt="To-Do List" />
+                <Card.Body>
+                  <Card.Title style={{ color: '#FF6347' }}>To-Do List</Card.Title>
+                  <Card.Text>Aplicación de lista de tareas simple creada con React y Bootstrap.</Card.Text>
+                  <Button variant="dark" href="https://github.com/vanehit/Lista-De-tareas.git" target="_blank" className="m-1">
+                    Ver Código <FaGithub />
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            {/* Proyecto 3: E-commerce React */}
+            <Col md={6} className="mb-4">
+              <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
+                <Card.Img variant="top" src="/images/ecommerce.png" alt="E-commerce React" />
+                <Card.Body>
+                  <Card.Title style={{ color: '#FF6347' }}>E-commerce React</Card.Title>
+                  <Card.Text>Tienda en línea con React (Vite) y MongoDB, incluyendo carrito.</Card.Text>
+                  <Button variant="dark" href="https://github.com/vanehit/ecommerce-react-vite.git" target="_blank" className="m-1">
+                    Ver Código <FaGithub />
+                  </Button>
+                  <Button variant="primary" href="#" target="_blank" className="m-1">
+                    Ver Demo <FaExternalLinkAlt />
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+
+            {/* Proyecto 4: Calculadora */}
+            <Col md={6} className="mb-4">
+              <Card className="shadow-lg border-0 rounded" style={{ backgroundColor: '#f7f7f7' }}>
+                <Card.Img variant="top" src="/images/calculadora.png" alt="Calculadora JS" />
+                <Card.Body>
+                  <Card.Title style={{ color: '#FF6347' }}>Calculadora JS</Card.Title>
+                  <Card.Text>Calculadora sencilla creada con HTML, CSS y JavaScript.</Card.Text>
+                  <Button variant="dark" href="https://github.com/vanehit/calculadora.git" target="_blank" className="m-1">
+                    Ver Código <FaGithub />
+                  </Button>
+                  <Button variant="primary" href="#" target="_blank" className="m-1">
+                    Ver Demo <FaExternalLinkAlt />
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
       </Container>
 
       <Dashboard />
