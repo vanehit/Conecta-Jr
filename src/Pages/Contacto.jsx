@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
-import emailjs from "emailjs-com";
 import "../Styles/styles.scss";
 import Footer from "../components/Footer/Footer";
 
@@ -21,8 +20,18 @@ function Contacto() {
     setError(null);
 
     try {
-      await emailjs.send("service_rqb9rgf", "ConectaJR", formData, "c1l9p5TF_aLwg_h6T");
-      setExito("¡Gracias por contactarte! Te responderé pronto 😊");
+      const response = await fetch("http://localhost:5000/api/mensajes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+
+      const data = await response.json();
+      setExito(data.mensaje || "¡Gracias por contactarte! Te responderé pronto 😊");
       setFormData({ nombre: "", email: "", mensaje: "" });
     } catch (err) {
       setError("Ocurrió un error al enviar tu mensaje. Intentalo de nuevo más tarde.");

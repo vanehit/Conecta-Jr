@@ -23,6 +23,7 @@ function CustomNavbar() {
             <Nav.Link as={Link} to="/consejos">Consejos</Nav.Link>
             <Nav.Link as={Link} to="/proyectos">Proyectos</Nav.Link>
             <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+            <Nav.Link as={Link} to="/login">Admin</Nav.Link> {/* 👈 agregado */}
           </Nav>
         </Navbar.Collapse>
       </Container>
