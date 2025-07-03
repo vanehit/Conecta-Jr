@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "axios": "^1.8.3",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",
     "emailjs-com": "^3.2.0",
-    "framer-motion": "^12.4.1",
+    "framer-motion": "^12.23.0",
+    "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",

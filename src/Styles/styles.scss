@@ -71,7 +71,7 @@ main {
     background-color: $primary-color;
     transition: all 0.3s ease-in-out;
     &:hover {
-      background-color: darken($primary-color, 10%);
+      background-color: $primary-color;
       transform: scale(1.05);
     }
   }
@@ -187,5 +187,27 @@ main {
 @media (max-width: 767px) {
   .d-md-none {
     display: block;
+  }
+}
+
+//Contacto
+.contacto-seccion {
+  min-height: 100vh;
+  background: #eafaf6; // Suave, complementario al logo
+  padding: 2rem 0;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-left: 6px solid #00c9a7; // Verde agua del logo
+}
+
+.btn-conecta {
+  background-color: #003b5c; // Azul oscuro del logo
+  border: none;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #005077;
   }
 }

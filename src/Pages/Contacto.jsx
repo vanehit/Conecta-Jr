@@ -1,98 +1,102 @@
 import { useState } from "react";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
 import emailjs from "emailjs-com";
-import "../Styles/styles.scss"; 
+import "../Styles/styles.scss";
 import Footer from "../components/Footer/Footer";
 
 function Contacto() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    mensaje: "",
-  });
+  const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
+  const [enviando, setEnviando] = useState(false);
+  const [exito, setExito] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setEnviando(true);
+    setExito(null);
+    setError(null);
 
-    emailjs
-      .send(
-        "service_rqb9rgf", 
-        "ConectaJR", 
-        formData,
-        "c1l9p5TF_aLwg_h6T" 
-      )
-      .then(() => {
-        alert("Mensaje enviado con éxito!");
-        setFormData({ nombre: "", email: "", mensaje: "" }); // Limpiar el formulario
-      })
-      .catch((error) => console.log("Error al enviar mensaje:", error));
+    try {
+      await emailjs.send("service_rqb9rgf", "ConectaJR", formData, "c1l9p5TF_aLwg_h6T");
+      setExito("¡Gracias por contactarte! Te responderé pronto 😊");
+      setFormData({ nombre: "", email: "", mensaje: "" });
+    } catch (err) {
+      setError("Ocurrió un error al enviar tu mensaje. Intentalo de nuevo más tarde.");
+    } finally {
+      setEnviando(false);
+    }
   };
 
   return (
     <>
-      <main className="flex-grow-1"> 
-        <Container className="py-5">
+      <main className="contacto-seccion d-flex align-items-center justify-content-center">
+        <Container className="contacto-container py-5">
           <Row className="justify-content-center">
             <Col md={8} lg={6}>
-              <Card className="shadow-lg p-4">
-                <Card.Body>
-                  <h2 className="text-center mb-4">Contacto</h2>
-                  <p className="text-center text-muted">
-                    Completa el formulario para enviarme un mensaje y establecer contacto.
-                  </p>
-                  <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formName" className="mb-3">
-                      <Form.Label>Nombre</Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Tu nombre"
-                        name="nombre"
-                        value={formData.nombre}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Form.Group>
-  
-                    <Form.Group controlId="formEmail" className="mb-3">
-                      <Form.Label>Email</Form.Label>
-                      <Form.Control
-                        type="email"
-                        placeholder="Tu email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Form.Group>
-  
-                    <Form.Group controlId="formMessage" className="mb-3">
-                      <Form.Label>Mensaje</Form.Label>
-                      <Form.Control
-                        as="textarea"
-                        rows={3}
-                        placeholder="Tu mensaje"
-                        name="mensaje"
-                        value={formData.mensaje}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Form.Group>
-  
-                    <Button variant="primary" type="submit" className="w-100">
-                      Enviar Mensaje
-                    </Button>
-                  </Form>
-                </Card.Body>
-              </Card>
+              <div className="contact-card p-4 rounded-4 shadow-lg">
+                <h2 className="text-center mb-3 fw-bold">Conectá con CONECTA JR</h2>
+                <p className="text-center text-muted mb-4">Quiero escucharte. Escribime tu mensaje.</p>
+
+                {exito && <Alert variant="success">{exito}</Alert>}
+                {error && <Alert variant="danger">{error}</Alert>}
+
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="nombre"
+                      placeholder="Tu nombre"
+                      value={formData.nombre}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Group>
+
+                  <Form.Group className="mb-3">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      placeholder="Tu correo electrónico"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Group>
+
+                  <Form.Group className="mb-4">
+                    <Form.Label>Mensaje</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      name="mensaje"
+                      placeholder="Tu mensaje"
+                      rows={4}
+                      value={formData.mensaje}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Form.Group>
+
+                  <Button type="submit" className="w-100 btn-conecta" disabled={enviando}>
+                    {enviando ? (
+                      <>
+                        <Spinner animation="border" size="sm" /> Enviando...
+                      </>
+                    ) : (
+                      "Enviar mensaje"
+                    )}
+                  </Button>
+                </Form>
+              </div>
             </Col>
-          </Row>      
+          </Row>
         </Container>
       </main>
-  
       <Footer />
     </>
   );
