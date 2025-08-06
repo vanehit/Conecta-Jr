@@ -15,7 +15,7 @@ function CustomNavbar() {
           <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
             CONECTA-JR
           </span>
-          {/* 🔹 Mostramos visitas en el Navbar */}
+          {/* 🔹 Mostramos las visitas en el Navbar */}
         <Visits />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -26,7 +26,7 @@ function CustomNavbar() {
             <Nav.Link as={Link} to="/consejos">Consejos</Nav.Link>
             <Nav.Link as={Link} to="/proyectos">Proyectos</Nav.Link>
             <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
-            <Nav.Link as={Link} to="/login">Admin</Nav.Link> {/* 👈 agregado */}
+            <Nav.Link as={Link} to="/login">Login</Nav.Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>

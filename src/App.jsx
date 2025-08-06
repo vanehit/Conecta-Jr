@@ -9,8 +9,9 @@ import CustomNavbar from "./components/Nabvar/Navbar";
 import Proyectos from "./Pages/Proyectos";
 import News from "./components/Dashboard/News";
 import TrendingLanguages from "./components/Dashboard/TrendingLanguages";
-import AdminLogin from "./Pages/AdminLogin";
-import AdminPanel from "./Pages/AdminPanel";
+import Login from "./Pages/Login/Login";
+import Signup from "./Pages/Signup/Signup";
+
 
 
 function App() {
@@ -28,8 +29,8 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/news" element={<News />} /> 
         <Route path="/tendencias" element={<TrendingLanguages />} />
-        <Route path="/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
     </>
