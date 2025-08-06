@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import Visits from "../Visits/Visits";
 
 function CustomNavbar() {
   return (
@@ -14,6 +15,8 @@ function CustomNavbar() {
           <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
             CONECTA-JR
           </span>
+          {/* 🔹 Mostramos visitas en el Navbar */}
+        <Visits />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
