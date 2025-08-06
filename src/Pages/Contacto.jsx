@@ -31,10 +31,10 @@ function Contacto() {
       }
 
       const data = await response.json();
-      setExito(data.mensaje || "¡Gracias por contactarte! Te responderé pronto 😊");
+      setExito(data.mensaje || "¡Gracias por tu mensaje! Si tenés más ideas, no dudes en volver a escribir.");
       setFormData({ nombre: "", email: "", mensaje: "" });
     } catch (err) {
-      setError("Ocurrió un error al enviar tu mensaje. Intentalo de nuevo más tarde.");
+      setError("Ocurrió un error al enviar tu mensaje. Intentá de nuevo más tarde.");
     } finally {
       setEnviando(false);
     }
@@ -48,7 +48,11 @@ function Contacto() {
             <Col md={8} lg={6}>
               <div className="contact-card p-4 rounded-4 shadow-lg">
                 <h2 className="text-center mb-3 fw-bold">Conectá con CONECTA JR</h2>
-                <p className="text-center text-muted mb-4">Quiero escucharte. Escribime tu mensaje.</p>
+                <p className="text-center text-muted mb-4">
+                  Si te gusta el blog, ¡me encantaría escucharte! 💬 <br />
+                  Enviame mensajes, sugerencias y opiniones que me ayuden a mejorar este espacio. <br />
+                  Tu aporte es muy valioso para seguir creciendo juntos.
+                </p>
 
                 {exito && <Alert variant="success">{exito}</Alert>}
                 {error && <Alert variant="danger">{error}</Alert>}
