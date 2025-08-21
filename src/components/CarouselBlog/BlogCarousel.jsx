@@ -1,7 +1,8 @@
 import React from "react";
 import { Carousel, Container, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../../Styles/styles.scss";
-import Button from "../HeroBanner/Button"
+import Button from "../HeroBanner/Button";
 
 const BlogCarousel = () => {
   const items = [
@@ -44,8 +45,8 @@ const BlogCarousel = () => {
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>{item.text}</Card.Text>
 
-                {/* Botón  */}
-                <Button  className="btn-conecta" href={item.link}>
+                {/* Botón como Link */}
+                <Button className="btn-conecta" as={Link} to={item.link}>
                   Leer más
                 </Button>
               </Card>

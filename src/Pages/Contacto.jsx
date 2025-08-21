@@ -112,7 +112,7 @@ function Contacto() {
               Sumate y recibí <em>apuntes, cuadernillos y recursos exclusivos</em>.
             </p>
             <p>
-              <a href="/signup" className="btn btn-success">Registrate aquí</a>
+              <a href="./Signup" className="btn btn-success">Registrate aquí</a>
             </p>
             <img 
               src="/images/conecta-tejr.png" 
