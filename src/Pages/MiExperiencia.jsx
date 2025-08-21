@@ -19,55 +19,93 @@ function MiExperiencia() {
               Este blog es más que un CV: es un espacio donde comparto mi camino, mis aprendizajes y mis proyectos. Si estás empezando como yo, o querés colaborar en un proyecto, ¡conectemos!
             </p>
 
-          {/* Línea de Tiempo */}
-          <VerticalTimeline>
-            <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              date="2022"
-              iconStyle={{ background: "#f54242", color: "#fff" }}
-              contentStyle={{ background: "#fff", color: "#000" }}
-            >
-              <h3 className="vertical-timeline-element-title">Argentina Programa</h3>
-              <h4 className="vertical-timeline-element-subtitle">Formación en Desarrollo Web</h4>
-              <p>Fue mi primer acercamiento al mundo de la programación. Aprendí HTML, CSS, JavaScript y React, y desarrollé mis primeros proyectos web de manera práctica y guiada.</p>
-            </VerticalTimelineElement>
+            {/* Línea de Tiempo */} 
+            <VerticalTimeline>
 
-            <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              date="2022"
-              iconStyle={{ background: "#f5a142", color: "#fff" }}
-              contentStyle={{ background: "#fff", color: "#000" }}
-            >
-              <h3 className="vertical-timeline-element-title">Coderhouse</h3>
-              <h4 className="vertical-timeline-element-subtitle">Carrera de Desarrollo Frontend</h4>
-              <p>Profundicé mis conocimientos en diseño responsive con HTML y CSS. Aprendí a agregar interactividad con JavaScript y a trabajar con React JS para crear aplicaciones web más dinámicas y escalables.</p>
-            </VerticalTimelineElement>
+              {/* Experiencia Diseño Gráfico */}
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date="2018"
+                iconStyle={{ background: "#f5f542", color: "#fff" }}
+                contentStyle={{ background: "#fff", color: "#000" }}
+              >
+                <h3 className="vertical-timeline-element-title">Diseño Gráfico y Publicitario</h3>
+                <h4 className="vertical-timeline-element-subtitle">Graduación IES Siglo 21</h4>
+                <p>
+                  Un Diseñador Gráfico y Publicitario puede desempeñarse ejecutando diferentes tareas vinculadas a la comunicación visual, en todas las áreas técnicas de diseño y producción gráfica.
+                </p>
+              </VerticalTimelineElement>
 
-            <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              date="2023"
-              iconStyle={{ background: "#42a5f5", color: "#fff" }}
-              contentStyle={{ background: "#fff", color: "#000" }}
-            >
-              <h3 className="vertical-timeline-element-title">MindHub Argentina</h3>
-              <h4 className="vertical-timeline-element-subtitle">Bootcamp Full Stack MERN</h4>
-              <p>Desarrollé una aplicación web completa utilizando el stack MERN (MongoDB, Express, React, Node.js). El proyecto consistió en una app de viajes donde los usuarios pueden explorar ciudades, planificar actividades y personalizar su itinerario desde una interfaz intuitiva.</p>
-            </VerticalTimelineElement>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date="2022"
+                iconStyle={{ background: "#f54242", color: "#fff" }}
+                contentStyle={{ background: "#fff", color: "#000" }}
+              >
+                <h3 className="vertical-timeline-element-title">Argentina Programa</h3>
+                <h4 className="vertical-timeline-element-subtitle">Formación en Desarrollo Web</h4>
+                <p>
+                  Fue mi primer acercamiento al mundo de la programación. Aprendí HTML, CSS, JavaScript y React, y desarrollé mis primeros proyectos web de manera práctica y guiada.
+                </p>
+              </VerticalTimelineElement>
 
-            {/* Nueva Experiencia - Analista de Sistemas con C# */}
-            <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              date="2025"
-              iconStyle={{ background: "#8e44ad", color: "#fff" }}
-              contentStyle={{ background: "#fff", color: "#000" }}
-            >
-              <h3 className="vertical-timeline-element-title">Carrera de Analista de Sistemas</h3>
-              <h4 className="vertical-timeline-element-subtitle">Estudios en curso - Desarrollo con C#</h4>
-              <p>
-                Actualmente estoy cursando la carrera de Analista de Sistemas, donde me estoy formando en programación estructurada y orientada a objetos con <strong>C#</strong>. Estoy enfocada en el desarrollo de aplicaciones de escritorio, integrando los conocimientos previos adquiridos en desarrollo web (HTML, CSS, JavaScript, React) con nuevas tecnologías y metodologías.
-              </p>
-            </VerticalTimelineElement>
-          </VerticalTimeline>
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date="2022"
+                iconStyle={{ background: "#f5a142", color: "#fff" }}
+                contentStyle={{ background: "#fff", color: "#000" }}
+              >
+                <h3 className="vertical-timeline-element-title">Coderhouse</h3>
+                <h4 className="vertical-timeline-element-subtitle">Carrera de Desarrollo Frontend</h4>
+                <p>
+                  Profundicé mis conocimientos en diseño responsive con HTML, CSS y React. Aprendí a agregar interactividad con JavaScript y a trabajar con React JS para crear aplicaciones web más dinámicas y escalables.
+                </p>
+              </VerticalTimelineElement>
+
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date="2023"
+                iconStyle={{ background: "#42a5f5", color: "#fff" }}
+                contentStyle={{ background: "#fff", color: "#000" }}
+              >
+                <h3 className="vertical-timeline-element-title">MindHub Argentina</h3>
+                <h4 className="vertical-timeline-element-subtitle">Bootcamp Full Stack MERN</h4>
+                <p>
+                  Desarrollé una aplicación web completa utilizando el stack MERN (MongoDB, Express, React, Node.js). El proyecto consistió en una app de viajes donde los usuarios pueden explorar ciudades, planificar actividades y personalizar su itinerario desde una interfaz intuitiva.
+                </p>
+              </VerticalTimelineElement>
+
+              {/* Blog Conecta Jr */}
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date="2024 – Actualidad"
+                iconStyle={{ background: "#42f554", color: "#fff" }}
+                contentStyle={{ background: "#fff", color: "#000" }}
+              >
+                <h3 className="vertical-timeline-element-title">CONECTA JR – Blog Educativo</h3>
+                <h4 className="vertical-timeline-element-subtitle">Desarrollo Frontend y Curaduría de Contenido</h4>
+                <p>
+                  Desarrollo y mantenimiento de un blog educativo para programadores junior con React, Redux y Bootstrap. La plataforma consume datos mediante <strong>llamados a APIs</strong>, ofreciendo artículos, recursos y guías prácticas. Continúa en desarrollo para optimizar su funcionalidad y agregar nuevas características interactivas.
+                </p>
+              </VerticalTimelineElement>
+
+              {/* Nueva Experiencia - Analista de Sistemas con C# */}
+              <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date="2025"
+                iconStyle={{ background: "#8e44ad", color: "#fff" }}
+                contentStyle={{ background: "#fff", color: "#000" }}
+              >
+                <h3 className="vertical-timeline-element-title">Carrera de Analista de Sistemas</h3>
+                <h4 className="vertical-timeline-element-subtitle">Estudios en curso - Entorno de Desarrollo con C#</h4>
+                <p>
+                  Como Analista de Sistemas podrás planificar proyectos de software y diseñar sistemas informáticos que permitan gestionar información y datos según las necesidades de los usuarios, ayudando a las organizaciones a incorporar nuevas tecnologías, mejorar sus procesos internos y ofrecer un mejor servicio a sus clientes.
+                </p>
+              </VerticalTimelineElement>
+
+            </VerticalTimeline>
+
+
 
             {/* Contacto */}
             <h3 className="font-weight-bold mt-4">Encuéntrame en:</h3>

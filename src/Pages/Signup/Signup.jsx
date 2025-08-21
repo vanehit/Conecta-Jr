@@ -19,7 +19,7 @@ function Signup() {
     setExito(null);
     setError(null);
 
-    // Validación simple antes de enviar
+    // Validación simple de la contraseña
     if (formData.password.length < 6) {
       setError("La contraseña debe tener al menos 6 caracteres.");
       setEnviando(false);
@@ -34,10 +34,9 @@ function Signup() {
       });
 
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.message || "Error en el registro");
 
-      setExito(data.message || "Registro exitoso. Ahora puedes iniciar sesión.");
+      setExito(data.message || "Registro exitoso. Ahora podés iniciar sesión.");
       setFormData({ nombre: "", email: "", password: "" });
     } catch (err) {
       setError(err.message || "No se pudo registrar el usuario.");
@@ -50,78 +49,100 @@ function Signup() {
     <>
       <main className="contacto-seccion d-flex align-items-center justify-content-center">
         <Container className="contacto-container py-5">
-          <Row className="justify-content-center">
-            <Col md={8} lg={6}>
-              <div className="contact-card p-4 rounded-4 shadow-lg">
-                <h2 className="text-center mb-3 fw-bold">Crear Cuenta</h2>
-                <p className="text-center text-muted mb-4">
-                  Registrate para controlar tus visitas.
-                </p>
+          <Row className="align-items-center">
+          {/* Columna izquierda (texto / invitación / cafecito) */}
+          <Col md={6} className="mb-4 mb-md-0">
+            <h2 className="fw-bold mb-3">Conecta-te JR</h2>
+            <p className="text-muted">
+              Este es un espacio para compartir ideas, aprender juntos y construir comunidad. 
+              Sumate y recibí <em>apuntes, cuadernillos y recursos exclusivos</em>.
+            </p>
+            <p className="text-muted">
+              Además, si te gusta el blog, podés apoyarme invitándome a un cafecito ☕.
+            </p>
+            <a
+              href="https://paypal.me/vanesapaolasoria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-warning fw-bold"
+            >
+              Invitar a un cafecito
+            </a>
+          </Col>
 
-                {exito && <Alert variant="success">{exito}</Alert>}
-                {error && <Alert variant="danger">{error}</Alert>}
+          {/* Columna derecha (formulario) */}
+          <Col md={6}>
+            <div className="contact-card p-4 rounded-4 shadow-lg">
+              <h2 className="text-center mb-3 fw-bold">Crear Cuenta</h2>
+              <p className="text-center text-muted mb-4">
+                Registrate para seguir creciendo juntos.
+              </p>
 
-                <Form onSubmit={handleSubmit}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="nombre"
-                      placeholder="Tu nombre"
-                      value={formData.nombre}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+              {exito && <Alert variant="success">{exito}</Alert>}
+              {error && <Alert variant="danger">{error}</Alert>}
 
-                  <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type="email"
-                      name="email"
-                      placeholder="Tu correo electrónico"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Nombre</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="nombre"
+                    placeholder="Tu nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
 
-                  <Form.Group className="mb-4">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control
-                      type="password"
-                      name="password"
-                      placeholder="Tu contraseña"
-                      value={formData.password}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    placeholder="Tu correo electrónico"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
 
-                  <Button
-                    type="submit"
-                    className="w-100 btn-conecta"
-                    disabled={enviando}
-                  >
-                    {enviando ? (
-                      <>
-                        <Spinner animation="border" size="sm" /> Registrando...
-                      </>
-                    ) : (
-                      "Registrarse"
-                    )}
-                  </Button>
+                <Form.Group className="mb-4">
+                  <Form.Label>Contraseña</Form.Label>
+                  <Form.Control
+                    type="password"
+                    name="password"
+                    placeholder="Tu contraseña"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
 
-                  <p className="text-center mt-3">
-                    ¿Ya tenés cuenta?{" "}
-                    <Link to="/login" className="text-primary fw-bold">
-                      Iniciá sesión
-                    </Link>
-                  </p>
-                </Form>
-              </div>
-            </Col>
-          </Row>
+                <Button type="submit" className="w-100 btn-conecta" disabled={enviando}>
+                  {enviando ? (
+                    <>
+                      <Spinner animation="border" size="sm" /> Registrando...
+                    </>
+                  ) : (
+                    "Registrarse"
+                  )}
+                </Button>
+              </Form>
+
+              <p className="text-center mt-3 text-muted small">
+                🔒 Tus datos están seguros y nunca serán compartidos con terceros.
+              </p>
+
+              <p className="text-center mt-3">
+                ¿Ya tenés cuenta?{" "}
+                <Link to="/login" className="text-primary fw-bold">
+                  Iniciá sesión
+                </Link>
+              </p>
+            </div>
+          </Col>
+        </Row>
+
         </Container>
       </main>
       <Footer />

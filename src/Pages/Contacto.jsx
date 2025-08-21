@@ -44,18 +44,15 @@ function Contacto() {
     <>
       <main className="contacto-seccion d-flex align-items-center justify-content-center">
         <Container className="contacto-container py-5">
-          <Row className="justify-content-center">
-            <Col md={8} lg={6}>
-              <div className="contact-card p-4 rounded-4 shadow-lg">
-                <h2 className="text-center mb-3 fw-bold">Conectá con CONECTA JR</h2>
-                <p className="text-center text-muted mb-4">
-                  Si te gusta el blog, ¡me encantaría escucharte! 💬 <br />
-                  Enviame mensajes, sugerencias y opiniones que me ayuden a mejorar este espacio. <br />
-                  Tu aporte es muy valioso para seguir creciendo juntos.
-                </p>
+          <Row className="justify-content-center align-items-center">
+            
+            {/* Columna izquierda - Formulario */}
+            <Col md={6}>
+              <div className="contact-card rounded-4 shadow-lg p-4">
+                <h2 className="text-center mb-3 fw-bold">Envíame un mensaje</h2>
 
-                {exito && <Alert variant="success">{exito}</Alert>}
-                {error && <Alert variant="danger">{error}</Alert>}
+                {exito && <Alert variant="success" className="fade-in">{exito}</Alert>}
+                {error && <Alert variant="danger" className="fade-in">{error}</Alert>}
 
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3">
@@ -87,7 +84,7 @@ function Contacto() {
                     <Form.Control
                       as="textarea"
                       name="mensaje"
-                      placeholder="Tu mensaje"
+                      placeholder="Tu mensaje o sugerencia 😊"
                       rows={4}
                       value={formData.mensaje}
                       onChange={handleChange}
@@ -95,7 +92,7 @@ function Contacto() {
                     />
                   </Form.Group>
 
-                  <Button type="submit" className="w-100 btn-conecta" disabled={enviando}>
+                  <Button type="submit" className="btn-custom" disabled={enviando}>
                     {enviando ? (
                       <>
                         <Spinner animation="border" size="sm" /> Enviando...
@@ -107,9 +104,28 @@ function Contacto() {
                 </Form>
               </div>
             </Col>
+          {/* Columna derecha - Info extra */}
+          <Col md={6} className="text-center">
+            <h2 className="fw-bold mb-3">Conecta-te JR</h2>
+            <p className="text-muted">
+              Este es un espacio para compartir ideas, aprender juntos y construir comunidad.  
+              Sumate y recibí <em>apuntes, cuadernillos y recursos exclusivos</em>.
+            </p>
+            <p>
+              <a href="/signup" className="btn btn-success">Registrate aquí</a>
+            </p>
+            <img 
+              src="/images/conecta-tejr.png" 
+              alt="Promoción Conecta-te JR" 
+              className="img-conectatejr" 
+              style={{ maxWidth: "350px" }} 
+            />
+          </Col>
+
           </Row>
         </Container>
       </main>
+
       <Footer />
     </>
   );

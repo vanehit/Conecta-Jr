@@ -9,8 +9,8 @@ function Proyectos() {
   return (
     <>
       <Container className="py-5">
-        <h1 className="text-center mb-5" style={{ color: '#212529' }}>Mis Proyectos</h1>
-        <p className="text-center mb-5" style={{ color: '#555' }}>
+        <h1 className="text-center mb-5">Mis Proyectos</h1>
+        <p className="text-center mb-5">
           La página de Proyectos tiene como propósito servir como un espacio de aprendizaje práctico para desarrolladores junior. Aquí se compartirán pequeños proyectos utilizando tecnologías clave como React, Vite, Sass, Axios y Git. La idea es que los participantes puedan explorar, aprender y contribuir en el desarrollo de aplicaciones reales, mientras mejoran sus habilidades técnicas.
         </p>
 

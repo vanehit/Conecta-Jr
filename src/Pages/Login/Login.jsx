@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // 👈 Agregar useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
 import "../../Styles/styles.scss";
 import Footer from "../../components/Footer/Footer";
@@ -31,7 +31,6 @@ function Login() {
       const data = await res.json();
       localStorage.setItem("userId", data.userId);
 
-      // 🔄 Redirigir al Home
       navigate("/");
     } catch (err) {
       setError("Email o contraseña incorrectos.");
@@ -48,11 +47,12 @@ function Login() {
             <Col md={8} lg={6}>
               <div className="contact-card p-4 rounded-4 shadow-lg">
                 <h2 className="text-center mb-3 fw-bold">Iniciar Sesión</h2>
+
                 <p className="text-center text-muted mb-4">
-                  Accedé para registrar tus visitas.
+                  Accedé para registrar tus visitas y recibir recursos exclusivos del blog.
                 </p>
 
-                {error && <Alert variant="danger">{error}</Alert>}
+                {error && <Alert variant="danger" className="fade-in">{error}</Alert>}
 
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3">
@@ -81,7 +81,7 @@ function Login() {
 
                   <Button
                     type="submit"
-                    className="w-100 btn-conecta"
+                    className="btn-conecta"
                     disabled={enviando}
                   >
                     {enviando ? (
@@ -95,9 +95,9 @@ function Login() {
 
                   <p className="text-center mt-3">
                     ¿No tenés cuenta?{" "}
-                    <Link to="/signup" className="text-primary fw-bold">
+                    <Link to="/signup" className="text-primary fw-bold text-decoration-underline">
                       Registrate
-                    </Link>
+                    </Link> y accedé a contenido exclusivo del blog.
                   </p>
                 </Form>
               </div>

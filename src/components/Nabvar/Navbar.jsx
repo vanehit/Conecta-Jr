@@ -6,18 +6,15 @@ function CustomNavbar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/" className="custom-white">
           <img
-            src="/images/logo-Conecta-jr-icono.png"  
+            src="/images/logo-Conecta-jr.png"  
             alt="Conecta Jr Logo"
-            style={{ width: "150px", marginRight: "5px" }}
+            style={{ width: "150px" }}
           />
-          <span style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-            CONECTA-JR
-          </span>
-          {/* 🔹 Mostramos las visitas en el Navbar */}
-        <Visits />
+        
         </Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -30,7 +27,12 @@ function CustomNavbar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      {/* 🔹 Contenedor para las visitas, alineado a la derecha */}
+      <div className="navbar-visits">
+        <Visits />
+      </div>
     </Navbar>
+    
   );
 }
 
