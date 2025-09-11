@@ -14,31 +14,40 @@ function Contacto() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setEnviando(true);
-    setExito(null);
-    setError(null);
+  e.preventDefault();
+  setEnviando(true);
+  setExito(null);
+  setError(null);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/mensajes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+  try {
+    // Obtener token guardado al loguearse
+    const token = localStorage.getItem("token");
 
-      if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor");
-      }
+    const response = await fetch("https://conectajr-backend.onrender.com/api/mensajes", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "Authorization": token ? `Bearer ${token}` : "" // <--- token aquí
+      },
+      body: JSON.stringify(formData),
+    });
 
+    if (!response.ok) {
       const data = await response.json();
-      setExito(data.mensaje || "¡Gracias por tu mensaje! Si tenés más ideas, no dudes en volver a escribir.");
-      setFormData({ nombre: "", email: "", mensaje: "" });
-    } catch (err) {
-      setError("Ocurrió un error al enviar tu mensaje. Intentá de nuevo más tarde.");
-    } finally {
-      setEnviando(false);
+      throw new Error(data.error || "Error en la respuesta del servidor");
     }
-  };
+
+    const data = await response.json();
+    setExito(data.mensaje || "¡Gracias por tu mensaje!");
+    setFormData({ nombre: "", email: "", mensaje: "" });
+  } catch (err) {
+    setError(err.message || "Ocurrió un error al enviar tu mensaje.");
+  } finally {
+    setEnviando(false);
+  }
+};
+
+
 
   return (
     <>

@@ -14,30 +14,33 @@ function Login() {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setEnviando(true);
-    setError(null);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setEnviando(true);
+  setError(null);
 
-    try {
-      const res = await fetch("http://localhost:5000/api/users/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch("https://conectajr-backend.onrender.com/api/users/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-      if (!res.ok) throw new Error("Credenciales inválidas");
+    if (!res.ok) throw new Error("Credenciales inválidas");
 
-      const data = await res.json();
-      localStorage.setItem("userId", data.userId);
+    const data = await res.json();
+    // Guardamos userId y token
+    localStorage.setItem("userId", data.userId);
+    localStorage.setItem("token", data.token);
 
-      navigate("/");
-    } catch (err) {
-      setError("Email o contraseña incorrectos.");
-    } finally {
-      setEnviando(false);
-    }
-  };
+    navigate("/");
+  } catch (err) {
+    setError("Email o contraseña incorrectos.");
+  } finally {
+    setEnviando(false);
+  }
+};
+
 
   return (
     <>

@@ -369,6 +369,24 @@ function Consejos() {
               </Card.Body>
             </Card>
           </Col>
+          <Col md={4} className="mb-4">
+            <Card className="shadow-lg">
+              <Card.Body>
+                <Card.Title>freeCodeCamp Español - Aprende TypeScript</Card.Title>
+                <Card.Text>
+                  💻 Curso completo de TypeScript desde cero. Aprende tipos, funciones, interfaces y más.
+                </Card.Text>
+                <Button 
+                  variant="danger" 
+                  href="https://www.youtube.com/watch?v=T7uaEZ3ZoZE&ab_channel=freeCodeCampEspa%C3%B1ol" 
+                  target="_blank"
+                >
+                  Ver en YouTube <FaYoutube />
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+
         </Row>
       </Container>
 

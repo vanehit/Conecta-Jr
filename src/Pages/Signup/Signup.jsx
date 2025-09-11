@@ -27,20 +27,26 @@ function Signup() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/users/signup", {
+      const res = await fetch("https://conectajr-backend.onrender.com/api/users/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Error en el registro");
+      if (!res.ok) throw new Error(data.error || "Error en el registro");
+
+      // Guardar token automáticamente si tu backend lo devuelve
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userId", data.userId);
+      }
 
       setExito(data.message || "Registro exitoso. Ahora podés iniciar sesión.");
       setFormData({ nombre: "", email: "", password: "" });
     } catch (err) {
       setError(err.message || "No se pudo registrar el usuario.");
-    } finally {
+    }finally {
       setEnviando(false);
     }
   };

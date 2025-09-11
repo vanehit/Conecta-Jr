@@ -20,7 +20,7 @@ const BlogCarousel = () => {
     },
     {
       title: "Proyectos",
-      text: "Aquí se compartirán pequeños proyectos utilizando tecnologías clave como React, Vite, Sass, Axios y Git y demás",
+      text: "Aquí se compartirán pequeños proyectos utilizando tecnologías clave como React, Vite, Sass, Axios, Git y demás",
       icon: "fas fa-project-diagram",
       link: "/proyectos",
     },
