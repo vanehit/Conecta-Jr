@@ -3,7 +3,7 @@ import useRegisterVisit from "../../hooks/useRegisterVisit";
 import "../../Styles/styles.scss";
 
 function Visits({ user }) {
-  const { totalVisitas, loading, error } = useRegisterVisit(user ? user._id : null);
+  const { totalVisitas, loading, error } = useRegisterVisit(user?._id);
 
   if (loading) return <span>Cargando...</span>;
   if (error) return <span>Error al cargar visitas</span>;

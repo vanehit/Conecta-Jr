@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = "https://conectajr-backend.onrender.com/api/visits";
+
 const useRegisterVisit = (userId = null, refreshInterval = 10000) => {
   const [totalVisitas, setTotalVisitas] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -9,22 +11,18 @@ const useRegisterVisit = (userId = null, refreshInterval = 10000) => {
   useEffect(() => {
     let intervalId;
 
-    const fetchVisits = async () => {
+    const registerVisit = async () => {
       try {
-        // Para visitantes anónimos, evitar contar varias veces por sesión
         const visited = localStorage.getItem("visited");
-        if (!userId && visited) return;
 
-        const response = await axios.post(
-          "https://conectajr-backend.onrender.com/api/visits/register",
-          { userId },
-          { withCredentials: true }
-        );
-
+        // Registrar o actualizar visita
+        const response = await axios.post(`${API_URL}/register`, { userId });
+        console.log("POST /register:", response.data); // 👀 debug
         setTotalVisitas(response.data.total);
-        setError(null);
 
-        if (!userId) localStorage.setItem("visited", "true"); // marcar como visitado
+        if (!userId && !visited) {
+          localStorage.setItem("visited", "true");
+        }
       } catch (err) {
         setError(err);
       } finally {
@@ -32,15 +30,23 @@ const useRegisterVisit = (userId = null, refreshInterval = 10000) => {
       }
     };
 
-    // Llamada inicial
-    fetchVisits();
+    const fetchTotal = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/total`);
+        console.log("GET /total:", response.data); // 👀 debug
+        setTotalVisitas(response.data.total);
+      } catch (err) {
+        setError(err);
+      }
+    };
 
-    // Actualización automática cada refreshInterval ms
-    intervalId = setInterval(fetchVisits, refreshInterval);
+    // Llamada inicial → registra la visita
+    registerVisit();
 
-    // Limpiar intervalo al desmontar
+    // Intervalos → solo actualiza el total
+    intervalId = setInterval(fetchTotal, refreshInterval);
+
     return () => clearInterval(intervalId);
-
   }, [userId, refreshInterval]);
 
   return { totalVisitas, loading, error };
