@@ -25,10 +25,7 @@ function Contacto() {
 
     const response = await fetch("https://conectajr-backend.onrender.com/api/mensajes", {
       method: "POST",
-      headers: { 
-        "Content-Type": "application/json",
-        "Authorization": token ? `Bearer ${token}` : "" // <--- token aquí
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
 
