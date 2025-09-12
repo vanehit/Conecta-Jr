@@ -1,40 +1,49 @@
-// src/hooks/useRegisterVisit.js
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function useRegisterVisit(userId = null) {
-  const [totalVisitas, setTotalVisitas] = useState(null);
+const useRegisterVisit = (userId = null, refreshInterval = 10000) => {
+  const [totalVisitas, setTotalVisitas] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const registerVisit = async () => {
+    let intervalId;
+
+    const fetchVisits = async () => {
       try {
-        setLoading(true);
+        // Para visitantes anónimos, evitar contar varias veces por sesión
+        const visited = localStorage.getItem("visited");
+        if (!userId && visited) return;
+
+        const response = await axios.post(
+          "https://conectajr-backend.onrender.com/api/visits/register",
+          { userId },
+          { withCredentials: true }
+        );
+
+        setTotalVisitas(response.data.total);
         setError(null);
 
-        const response = await fetch("http://localhost:5000/api/visits/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId }) // si no hay userId se envía null
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          throw new Error(data.error || "Error desconocido al registrar visita");
-        }
-
-        setTotalVisitas(data.total); // total de visitas recibido del backend
+        if (!userId) localStorage.setItem("visited", "true"); // marcar como visitado
       } catch (err) {
-        console.error("Error al registrar visita:", err);
-        setError(err.message);
+        setError(err);
       } finally {
         setLoading(false);
       }
     };
 
-    registerVisit();
-  }, [userId]);
+    // Llamada inicial
+    fetchVisits();
+
+    // Actualización automática cada refreshInterval ms
+    intervalId = setInterval(fetchVisits, refreshInterval);
+
+    // Limpiar intervalo al desmontar
+    return () => clearInterval(intervalId);
+
+  }, [userId, refreshInterval]);
 
   return { totalVisitas, loading, error };
-}
+};
+
+export default useRegisterVisit;

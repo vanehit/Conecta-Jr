@@ -20,9 +20,7 @@ function Contacto() {
   setError(null);
 
   try {
-    // Obtener token guardado al loguearse
-    const token = localStorage.getItem("token");
-
+   
     const response = await fetch("https://conectajr-backend.onrender.com/api/mensajes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -43,8 +41,6 @@ function Contacto() {
     setEnviando(false);
   }
 };
-
-
 
   return (
     <>
@@ -118,7 +114,7 @@ function Contacto() {
               Sumate y recibí <em>apuntes, cuadernillos y recursos exclusivos</em>.
             </p>
             <p>
-              <a href="./Signup" className="btn btn-success">Registrate aquí</a>
+              <a href="/Signup" className="btn btn-success">Registrate aquí</a>
             </p>
             <img 
               src="/images/conecta-tejr.png" 
