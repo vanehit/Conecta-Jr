@@ -386,7 +386,23 @@ function Consejos() {
               </Card.Body>
             </Card>
           </Col>
-
+          <Col md={4} className="mb-4">
+            <Card className="shadow-lg">
+              <Card.Body>
+                <Card.Title>MoureDev - Aprende Desarrollo Web</Card.Title>
+                <Card.Text>
+                  👨‍💻 Canal de MoureDev con cursos y tutoriales de programación en español. Ideal para mejorar tus habilidades como desarrollador.
+                </Card.Text>
+                <Button 
+                  variant="danger" 
+                  href="https://www.youtube.com/@mouredev" 
+                  target="_blank"
+                >
+                  Ver en YouTube <FaYoutube />
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
         </Row>
       </Container>
 
