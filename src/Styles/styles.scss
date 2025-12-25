@@ -176,7 +176,6 @@ main {
 }
 
 
-
 // Mejoramos el espaciado en móviles
 @media (max-width: 768px) {
   .container {
@@ -431,4 +430,101 @@ main {
   transform: scale(1.05);
 }
 
+// ===========================
+// Carousel de Cards
+// ===========================
+.experience-page {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.experience-hero {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.experience-hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  background: #ffffff;
+  color: #1f2937;
+  border-radius: 14px;
+  padding: 1.8rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.experience-header h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.role {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.description {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  background: #3eea99;
+  color: #064e3b;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.experience-contact {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.experience-contact .links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.experience-contact a {
+  color: #3eea99;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.experience-contact a:hover {
+  text-decoration: underline;
+}
 

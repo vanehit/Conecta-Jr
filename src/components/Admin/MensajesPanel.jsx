@@ -8,7 +8,7 @@ function MensajesPanel() {
   useEffect(() => {
     const fetchMensajes = async () => {
       try {
-        const token = localStorage.getItem("token"); // 👈 token admin
+        const token = localStorage.getItem("token"); 
         const res = await fetch("https://conectajr-backend.onrender.com/api/mensajes", {
           headers: {
             "Authorization": `Bearer ${token}`,

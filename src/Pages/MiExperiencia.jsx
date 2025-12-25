@@ -1,137 +1,100 @@
 import { Container } from "react-bootstrap";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import Footer from "../components/Footer/Footer";
+import ExperienceCard from "../components/ExperinceCard/ExperienceCard";
 
 function MiExperiencia() {
   return (
     <>
-      <Container fluid className="home-container">
-        <section className="bg-dark text-white py-5 px-4 rounded shadow-lg">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="display-4 font-weight-bold mb-4">
-              Mi experiencia en el mundo de la programación
-            </h2>
-            <p className="lead mb-4">
-              ¡Hola! Soy <strong>Vanesa Paola Soria</strong>, una apasionada por la tecnología, la programación y el diseño gráfico. Tengo 41 años y actualmente estoy estudiando la carrera de <strong>Analista de Sistemas</strong>. Mi objetivo es reinventarme profesionalmente como <strong>programadora full stack</strong> y desarrollar soluciones tecnológicas reales.  
-              <br /><br />
-              Este blog es más que un CV: es un espacio donde comparto mi camino, mis aprendizajes y mis proyectos. Si estás empezando como yo, o querés colaborar en un proyecto, ¡conectemos!
-            </p>
+      <Container fluid className="experience-page">
+        {/* HERO */}
+        <section className="experience-hero">
+          <h2>Mi experiencia</h2>
+          <p>
+            Soy <strong>Vanesa Paola Soria</strong>, desarrolladora{" "}
+            <strong>Full Stack MERN</strong>, con interés tanto en Frontend como en
+            Backend y una sólida base en diseño UX/UI. Me enfoco en crear
+            aplicaciones completas, escalables y bien estructuradas, aplicando
+            buenas prácticas de la industria.
+          </p>
+        </section>
 
-            {/* Línea de Tiempo */} 
-            <VerticalTimeline>
+        {/* EXPERIENCIA */}
+        <section className="experience-list">
+          <ExperienceCard
+            title="CONECTA JR"
+            role="Full Stack Developer & Content Curator"
+            date="2024 – Actualidad"
+            description="Desarrollo y mantenimiento de un blog educativo orientado a desarrolladores junior. Implementación de interfaces en React, consumo de APIs REST, mejoras de experiencia de usuario y creación de contenido técnico accesible."
+            skills={["React", "JavaScript", "APIs REST", "UX/UI", "Git"]}
+          />
 
-              {/* Experiencia Diseño Gráfico */}
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date="2018"
-                iconStyle={{ background: "#f5f542", color: "#fff" }}
-                contentStyle={{ background: "#fff", color: "#000" }}
-              >
-                <h3 className="vertical-timeline-element-title">Diseño Gráfico y Publicitario</h3>
-                <h4 className="vertical-timeline-element-subtitle">Graduación IES Siglo 21</h4>
-                <p>
-                  Un Diseñador Gráfico y Publicitario puede desempeñarse ejecutando diferentes tareas vinculadas a la comunicación visual, en todas las áreas técnicas de diseño y producción gráfica.
-                </p>
-              </VerticalTimelineElement>
+          <ExperienceCard
+            title="Academia ForIT – Fundación Formar"
+            role="Formación Full Stack & Software Engineering"
+            date="2025"
+            description="Programa intensivo orientado a la formación práctica en desarrollo full stack, con foco en buenas prácticas de la industria. Participación en equipos colaborativos, pair programming, desafíos técnicos y simulación de entornos laborales ágiles."
+            skills={[
+              "Full Stack MERN",
+              "TypeScript",
+              "TDD",
+              "Arquitectura Limpia",
+              "Docker",
+              "Git Avanzado",
+            ]}
+          />
 
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date="2022"
-                iconStyle={{ background: "#f54242", color: "#fff" }}
-                contentStyle={{ background: "#fff", color: "#000" }}
-              >
-                <h3 className="vertical-timeline-element-title">Argentina Programa</h3>
-                <h4 className="vertical-timeline-element-subtitle">Formación en Desarrollo Web</h4>
-                <p>
-                  Fue mi primer acercamiento al mundo de la programación. Aprendí HTML, CSS, JavaScript y React, y desarrollé mis primeros proyectos web de manera práctica y guiada.
-                </p>
-              </VerticalTimelineElement>
+          <ExperienceCard
+            title="MindHub Argentina"
+            role="Bootcamp Full Stack MERN"
+            date="2023"
+            description="Formación intensiva en desarrollo full stack MERN. Desarrollo de aplicaciones web completas con backend en Node.js y Express, base de datos MongoDB y frontend en React, trabajando bajo metodologías ágiles."
+            skills={["MongoDB", "Express", "React", "Node.js", "Git"]}
+          />
 
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date="2022"
-                iconStyle={{ background: "#f5a142", color: "#fff" }}
-                contentStyle={{ background: "#fff", color: "#000" }}
-              >
-                <h3 className="vertical-timeline-element-title">Coderhouse</h3>
-                <h4 className="vertical-timeline-element-subtitle">Carrera de Desarrollo Frontend</h4>
-                <p>
-                  Profundicé mis conocimientos en diseño responsive con HTML, CSS y React. Aprendí a agregar interactividad con JavaScript y a trabajar con React JS para crear aplicaciones web más dinámicas y escalables.
-                </p>
-              </VerticalTimelineElement>
+          <ExperienceCard
+            title="Coderhouse"
+            role="Carrera de Desarrollo Frontend"
+            date="2022"
+            description="Formación en HTML, CSS, JavaScript y React, con foco en diseño responsive, componentes reutilizables e interactividad."
+            skills={["HTML", "CSS", "JavaScript", "React"]}
+          />
 
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date="2023"
-                iconStyle={{ background: "#42a5f5", color: "#fff" }}
-                contentStyle={{ background: "#fff", color: "#000" }}
-              >
-                <h3 className="vertical-timeline-element-title">MindHub Argentina</h3>
-                <h4 className="vertical-timeline-element-subtitle">Bootcamp Full Stack MERN</h4>
-                <p>
-                  Desarrollé una aplicación web completa utilizando el stack MERN (MongoDB, Express, React, Node.js). El proyecto consistió en una app de viajes donde los usuarios pueden explorar ciudades, planificar actividades y personalizar su itinerario desde una interfaz intuitiva.
-                </p>
-              </VerticalTimelineElement>
+          <ExperienceCard
+            title="Argentina Programa"
+            role="Introducción al Desarrollo Web"
+            date="2022"
+            description="Primer acercamiento al mundo de la programación, con fundamentos de lógica, desarrollo web y proyectos prácticos."
+            skills={["HTML", "CSS", "JavaScript", "Lógica"]}
+          />
+        </section>
 
-              {/* Blog Conecta Jr */}
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date="2024 – Actualidad"
-                iconStyle={{ background: "#42f554", color: "#fff" }}
-                contentStyle={{ background: "#fff", color: "#000" }}
-              >
-                <h3 className="vertical-timeline-element-title">CONECTA JR – Blog Educativo</h3>
-                <h4 className="vertical-timeline-element-subtitle">Desarrollo Frontend y Curaduría de Contenido</h4>
-                <p>
-                  Desarrollo y mantenimiento de un blog educativo para programadores junior con React, Redux y Bootstrap. La plataforma consume datos mediante <strong>llamados a APIs</strong>, ofreciendo artículos, recursos y guías prácticas. Continúa en desarrollo para optimizar su funcionalidad y agregar nuevas características interactivas.
-                </p>
-              </VerticalTimelineElement>
+        {/* CONTACTO */}
+        <section className="experience-contact">
+          <h3>Conectemos</h3>
+          <p>¿Charlamos o colaboramos en un proyecto?</p>
 
-              {/* Nueva Experiencia - Analista de Sistemas con C# */}
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                date="2025"
-                iconStyle={{ background: "#8e44ad", color: "#fff" }}
-                contentStyle={{ background: "#fff", color: "#000" }}
-              >
-                <h3 className="vertical-timeline-element-title">Carrera de Analista de Sistemas</h3>
-                <h4 className="vertical-timeline-element-subtitle">Estudios en curso - Entorno de Desarrollo con C#</h4>
-                <p>
-                  Como Analista de Sistemas podrás planificar proyectos de software y diseñar sistemas informáticos que permitan gestionar información y datos según las necesidades de los usuarios, ayudando a las organizaciones a incorporar nuevas tecnologías, mejorar sus procesos internos y ofrecer un mejor servicio a sus clientes.
-                </p>
-              </VerticalTimelineElement>
+          <div className="links">
+            <a
+              href="https://www.linkedin.com/in/vanesa-paola-soria-40170a1b3/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin /> LinkedIn
+            </a>
 
-            </VerticalTimeline>
-
-
-
-            {/* Contacto */}
-            <h3 className="font-weight-bold mt-4">Encuéntrame en:</h3>
-            <p className="lead">¿Te gustaría colaborar en algún proyecto? ¡Hablemos! 😊</p>
-            <div className="d-flex flex-column align-items-center gap-3">
-              <a 
-                href="https://www.linkedin.com/in/vanesa-paola-soria-40170a1b3/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white fs-3"
-              >
-                <FaLinkedin /> LinkedIn
-              </a>
-
-              <a 
-                href="https://github.com/vanehit" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white fs-3"
-              >
-                <FaGithub /> GitHub
-              </a>
-            </div>
+            <a
+              href="https://github.com/vanehit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub /> GitHub
+            </a>
           </div>
         </section>
       </Container>
+
       <Footer />
     </>
   );
