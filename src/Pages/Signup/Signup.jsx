@@ -63,8 +63,8 @@ function Signup() {
             <Col md={6} className="mb-4 mb-md-0">
               <h2 className="fw-bold mb-3">Conecta-te JR</h2>
               <p className="text-muted">
-                Este es un espacio para compartir ideas, aprender juntos y construir comunidad. 
-                Sumate y recibí <em>apuntes, cuadernillos y recursos exclusivos</em>.
+           Este es un espacio para compartir el proceso, experiencias, recursos y aprendizajes, y construir comunidad entre desarrolladores junior.
+           Sumate a un acompañamiento real, pensado para quienes están atravesando la búsqueda de su primer trabajo en tecnología.
               </p>
               <p className="text-muted">
                 Además, si te gusta el blog, podés apoyarme invitándome a un cafecito ☕.

@@ -52,7 +52,8 @@ function Login() {
                 <h2 className="text-center mb-3 fw-bold">Iniciar Sesión</h2>
 
                 <p className="text-center text-muted mb-4">
-                  Accedé para registrar tus visitas y recibir recursos exclusivos del blog.
+                 Accedé para seguir el proceso y participar del espacio CONECTA JR.
+
                 </p>
 
                 {error && <Alert variant="danger" className="fade-in">{error}</Alert>}

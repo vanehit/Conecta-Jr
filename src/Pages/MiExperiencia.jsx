@@ -55,7 +55,7 @@ function MiExperiencia() {
 
           <ExperienceCard
             title="Coderhouse"
-            role="Carrera de Desarrollo Frontend"
+            role="Frontend Developer"
             date="2022"
             description="Formación en HTML, CSS, JavaScript y React, con foco en diseño responsive, componentes reutilizables e interactividad."
             skills={["HTML", "CSS", "JavaScript", "React"]}
@@ -63,7 +63,7 @@ function MiExperiencia() {
 
           <ExperienceCard
             title="Argentina Programa"
-            role="Introducción al Desarrollo Web"
+            role="Introduction to Web Development"
             date="2022"
             description="Primer acercamiento al mundo de la programación, con fundamentos de lógica, desarrollo web y proyectos prácticos."
             skills={["HTML", "CSS", "JavaScript", "Lógica"]}

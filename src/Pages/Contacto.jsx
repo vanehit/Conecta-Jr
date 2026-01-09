@@ -51,7 +51,7 @@ function Contacto() {
             {/* Columna izquierda - Formulario */}
             <Col md={6}>
               <div className="contact-card rounded-4 shadow-lg p-4">
-                <h2 className="text-center mb-3 fw-bold">Envíame un mensaje</h2>
+                <h2 className="text-center mb-3 fw-bold">Sumate a CONECTA JR</h2>
 
                 {exito && <Alert variant="success" className="fade-in">{exito}</Alert>}
                 {error && <Alert variant="danger" className="fade-in">{error}</Alert>}
@@ -86,7 +86,7 @@ function Contacto() {
                     <Form.Control
                       as="textarea"
                       name="mensaje"
-                      placeholder="Tu mensaje o sugerencia 😊"
+                      placeholder="Contame en qué etapa estás como developer junior 😊"
                       rows={4}
                       value={formData.mensaje}
                       onChange={handleChange}
@@ -94,7 +94,7 @@ function Contacto() {
                     />
                   </Form.Group>
 
-                  <Button type="submit" className="btn-custom" disabled={enviando}>
+                  <Button type="submit" className="btn-conecta" disabled={enviando}>
                     {enviando ? (
                       <>
                         <Spinner animation="border" size="sm" /> Enviando...
@@ -110,8 +110,7 @@ function Contacto() {
           <Col md={6} className="text-center">
             <h2 className="fw-bold mb-3">Conecta-te JR</h2>
             <p className="text-muted">
-              Este es un espacio para compartir ideas, aprender juntos y construir comunidad.  
-              Sumate y recibí <em>apuntes, cuadernillos y recursos exclusivos</em>.
+              Contame en qué etapa estás y seguimos conectados.
             </p>
             <p>
               <a href="/Signup" className="btn btn-success">Registrate aquí</a>

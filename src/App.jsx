@@ -11,6 +11,8 @@ import News from "./components/Dashboard/News";
 import TrendingLanguages from "./components/Dashboard/TrendingLanguages";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
+import ConectaEnCorto from "./Pages/ConectaEnCorto";
+
 
 
 
@@ -26,6 +28,7 @@ function App() {
         <Route path="/mi-experiencia" element={<MiExperiencia />} />
         <Route path="/consejos" element={<Consejos />} />
         <Route path="/proyectos" element={<Proyectos />} />
+        <Route path="/conecta-en-corto" element={<ConectaEnCorto />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/news" element={<News />} /> 
         <Route path="/tendencias" element={<TrendingLanguages />} />

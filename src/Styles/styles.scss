@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-// Variables de colores y tipografía
-$primary-color: #007bff;
+// ===========================
+// Variables – Identidad Conecta JR
+// ===========================
+
+$font-main: 'Poppins', sans-serif;
+
+// Marca
+$primary-color:  #1c415d;// Azul Conecta JR
+$accent-color: #42eb99;  // Verde Conecta JR
+
+// UI
 $secondary-color: #6c757d;
 $dark-bg: #343a40;
 $text-light: #f8f9fa;
-$light-bg: #f7f7f7; // Nuevo color para el fondo de las tarjetas
+$light-bg: #f7f7f7;
+$soft-bg: #e8fcf7;
 
 // ===========================
 // Estilos generales
@@ -15,15 +25,30 @@ html, body, #root {
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-family: 'Poppins', sans-serif;
+  font-family: $font-main;
   background-color: #fff;
   margin: 0;
   padding: 0;
 }
 
 main {
-  flex: 1; 
+  flex: 1;
 }
+
+.container {
+  padding: 20px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+
 // ===========================
 // Navbar
 // ===========================
@@ -45,20 +70,19 @@ main {
     margin-right: 10px;
   }
 }
-// ===========================
-// Badge de visitas //
-// ===========================
 
 .navbar-visits {
   margin-right: 40px; 
   display: flex;
   align-items: center;
-  background-color: #343a40; // gris oscuro como navbar
+  background-color: #343a40; 
   padding: 4px 12px;
   border-radius: 20px;
   color: white;
   font-size: 14px;
 }
+
+
 // ===========================
 // Hero Banner
 // ===========================
@@ -78,8 +102,9 @@ main {
     animation: glow 1.5s ease-in-out infinite;
   }
 }
+
 // ===========================
-// Estilos para las tarjetas
+// Sistema de Cards
 // ===========================
 
 .card {
@@ -87,9 +112,8 @@ main {
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  
-  padding: 1.5rem;   // espacio interno
-  margin-bottom: 20px; // separa tarjetas verticalmente
+  padding: 1.5rem;
+  margin-bottom: 20px;
 
   &:hover {
     transform: translateY(-5px);
@@ -107,15 +131,6 @@ main {
     line-height: 1.5;
     margin-bottom: 1rem;
   }
-}
-
-
-.container {
-  padding: 20px;
-}
-
-.row {
-  margin-bottom: 20px;
 }
 
 // ===========================
@@ -136,44 +151,64 @@ main {
 }
 
 // ===========================
-// Tarjeta de Contacto
+// Contacto
 // ===========================
-.contact-card {
-  @extend .card;          // hereda bordes, sombra y transición
-  background-color: #ffffff;
-  border-left: 6px solid #42eb99;
-  padding: 2rem;          // espacio interno generoso
-  margin: 2rem 0;         // separación vertical de la sección
-  max-width: 600px;       // no se expanda demasiado
-  width: 100%;            // responsive
 
-  h2 {
-    margin-bottom: 1rem;
-    color: $primary-color;
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-    color: $secondary-color;
-  }
-
-  
- 
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-  }
+.contacto-seccion {
+  min-height: 100vh;
+  background: #e0fff8;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
 }
 
+.contact-card {
+  @extend .card;
+  background-color: #ffffff;
+  border-left: 6px solid $accent-color;
+  max-width: 600px;
+  width: 100%;
+}
 
-/* Estilo global para las fechas de la línea de tiempo */
+// ===========================
+// Timeline
+// ===========================
+
 .vertical-timeline-element-date {
-  color: #f3eaea !important; /* color oscuro para buen contraste */
+  color: #f3eaea !important;
   font-weight: bold;
   background: transparent;
   padding: 0.5rem;
-  z-index: 1; /* por si alguna fecha queda detrás */
 }
+
+// ===========================
+// Sidebar
+// ===========================
+
+.sidebar {
+  width: 100%;
+  height: 100vh;
+  background-color: $dark-bg;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar .nav-link {
+  color: #fff;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    background-color: #495057;
+  }
+}
+
 
 
 // Mejoramos el espaciado en móviles
@@ -191,10 +226,10 @@ main {
   }
 
   .navbar-brand img {
-    width: 120px; // Ajustamos el logo en pantallas pequeñas
+    width: 120px;
   }
 
-  // Ajustamos color de fecha en la línea de tiempo para que se vea bien en pantallas chicas
+  // Ajustamos color de fecha en la línea de tiempo para mobile
   .vertical-timeline-element-date {
     color: #0c0c0c !important;
   }
@@ -208,6 +243,7 @@ main {
     }
   }
 }
+
 
 @keyframes glow {
   0%, 100% {
@@ -240,44 +276,6 @@ main {
   text-align: center;
   font-size: 0.9rem;
   margin-top: auto;
-}
-/* Estilos personalizados para el Sidebar */
-.sidebar {
-  width: 100%; /* Ocupa el 30% de la pantalla */
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
-  background-color: #343a40; /* Fondo oscuro */
-  transition: transform 0.3s ease;
-}
-
-.sidebar.open {
-  transform: translateX(0); /* Cuando está abierto */
-}
-
-.sidebar.closed {
-  transform: translateX(-100%); /* Cuando está cerrado */
-}
-
-.sidebar .text-white {
-  color: #fff;
-}
-
-.sidebar .nav-link {
-  color: #fff;
-  padding: 0.5rem 1rem;
-}
-
-.sidebar .nav-link:hover {
-  background-color: #495057; /* Color de fondo cuando se pasa el ratón por encima */
-}
-
-.d-md-none {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .d-md-none {
-    display: block;
-  }
 }
 
 //Contacto
@@ -350,7 +348,7 @@ main {
     flex-wrap: wrap;
   }
 
-  .signup-left {
+  .signup {
     padding: 2rem;
 
     h2 {
@@ -360,13 +358,6 @@ main {
     p {
       font-size: 1.1rem;
       color: #555;
-    }
-
-    .btn-success {
-      background: #198754;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 10px;
     }
 
     .signup-img {
