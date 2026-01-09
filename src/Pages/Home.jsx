@@ -46,8 +46,7 @@ function Home() {
               </h3>
 
               <p className="text-muted mb-4">
-                Accedé a apuntes, recursos exclusivos y acompañamiento pensado
-                para perfiles junior.
+                Un espacio para aprender, compartir el proceso y acompañarnos entre quienes estamos empezando en tecnología.
               </p>
 
               <Link to="/signup" className="btn-conecta w-100">
