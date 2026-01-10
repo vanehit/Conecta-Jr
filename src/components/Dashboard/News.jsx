@@ -2,33 +2,40 @@ import React, { useState, useEffect } from "react";
 
 const News = () => {
   const [news, setNews] = useState([]);
-  const [error, setError] = useState(null);  
-  const API_KEY = import.meta.env.VITE_GNEWS_API_KEY; 
+  const [error, setError] = useState(null);
 
- useEffect(() => {
-  if (!API_KEY) {
-    setError("El servicio de noticias no está disponible en este momento.");
-    return;
-  }
+  const API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
 
-  const url = `https://gnews.io/api/v4/search?q=technology&lang=en&country=us&max=10&apikey=${API_KEY}`;
+  useEffect(() => {
+    if (!API_KEY) {
+      setError("El servicio de noticias no está disponible en este momento.");
+      return;
+    }
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.articles) {
-        setNews(data.articles);
-      } else {
-        setError("No se encontraron noticias.");
-      }
-    })
-    .catch(() => {
-      setError("Hubo un problema al obtener las noticias.");
-    });
-}, [API_KEY]);
+    const url = `https://gnews.io/api/v4/search?q=technology&lang=en&country=us&max=10&apikey=${API_KEY}`;
 
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("API error");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.articles?.length) {
+          setNews(data.articles);
+        } else {
+          setError("No se encontraron noticias.");
+        }
+      })
+      .catch(() => {
+        setError(
+          "En este momento no pudimos cargar noticias externas. El espacio sigue enfocado en acompañar a desarrolladores junior 💚"
+        );
+      });
+  }, []);
 
- if (error) {
+  if (error) {
   return (
     <div className="p-4">
       <h2 className="h5">📰 Noticias de tecnología</h2>
@@ -40,10 +47,10 @@ const News = () => {
   );
 }
 
-
   return (
     <div className="container p-4">
       <h2 className="h4 mb-4">Noticias de Tecnología</h2>
+
       {news.length > 0 ? (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {news.slice(0, 5).map((article, index) => (
@@ -57,14 +64,16 @@ const News = () => {
                     style={{ height: "200px", objectFit: "cover" }}
                   />
                 )}
-                <div className="card-body">
+
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{article.title}</h5>
                   <p className="card-text">{article.description}</p>
+
                   <a
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary"
+                    className="btn btn-primary mt-auto"
                   >
                     Leer más
                   </a>
