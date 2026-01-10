@@ -12,10 +12,6 @@ const TrendingLanguages = () => {
   useEffect(() => {
     axios
       .get("https://api.github.com/search/repositories?q=stars:>10000&sort=stars&order=desc", {
-        headers: {
-          "Authorization": `Bearer ${API_KEY}`,
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
       })
       .then((response) => {
         const languageCount = {};
