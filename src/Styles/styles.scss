@@ -83,25 +83,161 @@ main {
 }
 
 
-// ===========================
-// Hero Banner
-// ===========================
+/* =========================
+   HERO BANNER
+========================= */
 
 .hero-banner {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-              url('/images/banner.png') no-repeat center center;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url('/images/banner.png') no-repeat center center;
+
   background-size: cover;
+  background-blend-mode: multiply;
+  background-position: 70% center;
   min-height: 100vh;
+  padding: 6rem 3rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
   color: $text-light;
+  position: relative;
+}
 
-  h1, p {
-    animation: glow 1.5s ease-in-out infinite;
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:  rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+
+/* =========================
+   LOGO FIJO (marca)
+========================= */
+
+.hero-logo {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo img {
+  max-width: 260px; 
+  opacity: 0.9;     
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.hero-text h1 {
+  letter-spacing: 0.03em;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 800;
+}
+
+.hero-text p {
+  line-height: 1.6;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  opacity: 0.9;
+  max-width: 560px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hero-cta a {
+ padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* CTA principal */
+.hero-cta .primary {
+  background: #4ade80;
+  color: #0f172a;
+}
+
+.hero-cta .primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(66, 235, 153, 0.35);
+}
+
+/* CTA secundario */
+.hero-cta .secondary {
+  border: 1px solid rgba(255,255,255,0.6);
+  color: white;
+}
+
+.hero-cta .secondary:hover {
+   background: rgba(255,255,255,0.15);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-logo img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .hero-cta {
+    justify-content: center;
   }
 }
+
+
 
 // ===========================
 // Sistema de Cards

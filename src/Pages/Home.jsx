@@ -42,7 +42,7 @@ function Home() {
           <div className="col-lg-6 col-md-8">
             <div className="contact-card p-4 rounded-4 shadow-lg text-center">
               <h3 className="card-tittle mb-3">
-                Sumate a la comunidad CONECTA JR
+                Sumate a la comunidad 😀
               </h3>
 
               <p className="text-muted mb-4">

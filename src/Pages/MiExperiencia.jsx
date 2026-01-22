@@ -18,6 +18,7 @@ function MiExperiencia() {
             aplicaciones completas, escalables y bien estructuradas, aplicando
             buenas prácticas de la industria.
           </p>
+          <p>Creo en el aprendizaje acompañado, por eso creé CONECTA JR, un espacio que ayuda a desarrolladores junior con recursos, guía y experiencias reales para crecer en el mundo profesional.</p>
         </section>
 
         {/* EXPERIENCIA */}

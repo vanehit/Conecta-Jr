@@ -6,7 +6,7 @@ function Consejos() {
   return (
     <>
       <Container className="py-5">
-        <h1 className="text-center mb-5">Consejos para Programadores Junior</h1>
+        <h1 className="text-center mb-5">Recursos para Programadores Junior</h1>
         
         {/* Sección de Consejos */}
         <Row>
