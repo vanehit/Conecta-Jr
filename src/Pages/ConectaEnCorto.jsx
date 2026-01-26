@@ -57,8 +57,6 @@ function ConectaEnCorto() {
           ))}
         </Row>
       </Container>
-
-      <Footer />
     </>
   );
 }

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
 import "../../Styles/styles.scss";
-import Footer from "../../components/Footer/Footer";
 
 function Signup() {
   const [formData, setFormData] = useState({ nombre: "", email: "", password: "" });
@@ -37,17 +36,7 @@ function Signup() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Error en el registro");
 
-      // Guardamos token y userId si el backend los devuelve
-      if (data.token && data.userId) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("userId", data.userId);
-      }
-
-      setExito(data.message || "Registro exitoso. Ahora podés iniciar sesión.");
-      setFormData({ nombre: "", email: "", password: "" });
-
-      // Opcional: redirigir automáticamente al usuario
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       setError(err.message || "No se pudo registrar el usuario.");
     } finally {
@@ -56,104 +45,82 @@ function Signup() {
   };
 
   return (
-    <>
-      <main className="contacto-seccion d-flex align-items-center justify-content-center">
-        <Container className="contacto-container py-5">
-          <Row className="align-items-center">
-            <Col md={6} className="mb-4 mb-md-0">
-              <h2 className="fw-bold mb-3">Conecta-te JR</h2>
-              <p className="text-muted">
-           Este es un espacio para compartir el proceso, experiencias, recursos y aprendizajes, y construir comunidad entre desarrolladores junior.
-           Sumate a un acompañamiento real, pensado para quienes están atravesando la búsqueda de su primer trabajo en tecnología.
-              </p>
-              <p className="text-muted">
-                Además, si te gusta el blog, podés apoyarme invitándome a un cafecito ☕.
-              </p>
-              <a
-                href="https://paypal.me/vanesapaolasoria"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-warning fw-bold"
-              >
-                Invitar a un cafecito
-              </a>
-            </Col>
+    <Container>
+      <Row className="align-items-center g-4">
+        {/* Col izquierda */}
+        <Col md={6}>
+          <h2 className="fw-bold mb-3">Conecta-te JR</h2>
+          <p className="text-muted">
+            Espacio para compartir proceso, experiencias y aprendizajes entre
+            developers junior.
+          </p>
+          <a
+            href="https://paypal.me/vanesapaolasoria"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-warning fw-bold"
+          >
+            Invitar a un cafecito ☕
+          </a>
+        </Col>
 
-            <Col md={6}>
-              <div className="contact-card p-4 rounded-4 shadow-lg">
-                <h2 className="text-center mb-3 fw-bold">Crear Cuenta</h2>
-                <p className="text-center text-muted mb-4">
-                  Registrate para seguir creciendo juntos.
-                </p>
+        {/* Col derecha */}
+        <Col md={6}>
+          <div className="contact-card p-4 rounded-4 shadow-lg">
+            <h2 className="text-center mb-3 fw-bold">Crear Cuenta</h2>
 
-                {exito && <Alert variant="success">{exito}</Alert>}
-                {error && <Alert variant="danger">{error}</Alert>}
+            {exito && <Alert variant="success">{exito}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>}
 
-                <Form onSubmit={handleSubmit}>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="nombre"
-                      placeholder="Tu nombre"
-                      value={formData.nombre}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type="email"
-                      name="email"
-                      placeholder="Tu correo electrónico"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
 
-                  <Form.Group className="mb-4">
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control
-                      type="password"
-                      name="password"
-                      placeholder="Tu contraseña"
-                      value={formData.password}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
 
-                  <Button type="submit" className="w-100 btn-conecta" disabled={enviando}>
-                    {enviando ? (
-                      <>
-                        <Spinner animation="border" size="sm" /> Registrando...
-                      </>
-                    ) : (
-                      "Registrarse"
-                    )}
-                  </Button>
-                </Form>
+             <button type="submit" className="btn-conecta w-100" disabled={enviando}>
+                {enviando ? "Registrando..." : "Registrarse"}
+             </button>
+            </Form>
 
-                <p className="text-center mt-3 text-muted small">
-                  🔒 Tus datos están seguros y nunca serán compartidos con terceros.
-                </p>
-
-                <p className="text-center mt-3">
-                  ¿Ya tenés cuenta?{" "}
-                  <Link to="/login" className="text-primary fw-bold">
-                    Iniciá sesión
-                  </Link>
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </main>
-      <Footer />
-    </>
+            <p className="text-center mt-3">
+              ¿Ya tenés cuenta?{" "}
+              <Link to="/login" className="fw-bold">
+                Iniciá sesión
+              </Link>
+            </p>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

@@ -1,6 +1,5 @@
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import Footer from "../components/Footer/Footer";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Dashboard from "../components/Dashboard/Dashboard";
 import '../Styles/styles.scss'; 
@@ -92,7 +91,6 @@ function Proyectos() {
       </Container>
 
       <Dashboard />
-      <Footer />
     </>
   );
 }

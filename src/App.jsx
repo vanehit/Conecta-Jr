@@ -1,43 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import './Styles/styles.scss'
 import Home from "./Pages/Home";
 import MiExperiencia from "./Pages/MiExperiencia";
 import Consejos from "./Pages/Consejos";
+import ConectaEnCorto from "./Pages/ConectaEnCorto"
 import Contacto from "./Pages/Contacto";
-import CustomNavbar from "./components/Nabvar/Navbar";
-import Proyectos from "./Pages/Proyectos";
-import News from "./components/Dashboard/News";
-import TrendingLanguages from "./components/Dashboard/TrendingLanguages";
 import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
-import ConectaEnCorto from "./Pages/ConectaEnCorto";
-
-
-
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import Proyectos from "./Pages/Proyectos";
 
 function App() {
-  
   return (
-    <>
-      <BrowserRouter>
-      <CustomNavbar />
-      
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/mi-experiencia" element={<MiExperiencia />} />
-        <Route path="/consejos" element={<Consejos />} />
-        <Route path="/proyectos" element={<Proyectos />} />
-        <Route path="/conecta-en-corto" element={<ConectaEnCorto />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/news" element={<News />} /> 
-        <Route path="/tendencias" element={<TrendingLanguages />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+
+        {/* Layout principal */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/miExperiencia" element={<MiExperiencia />} />
+          <Route path="/consejos" element={<Consejos />} />
+          <Route path="/proyectos" element={<Proyectos />} />
+          <Route path="/conecta-en-corto" element={<ConectaEnCorto />} />
+          <Route path="/contacto" element={<Contacto />} />
+        </Route>
+
+        {/* Layout auth (sin navbar) */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

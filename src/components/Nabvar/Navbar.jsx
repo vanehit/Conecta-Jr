@@ -1,39 +1,76 @@
-import { Link } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import Visits from "../Visits/Visits";
 
 function CustomNavbar() {
+  const navigate = useNavigate();
+  const isAuth = Boolean(localStorage.getItem("token"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate("/login");
+  };
+
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand as={Link} to="/" className="custom-white">
+        {/* Brand / Logo */}
+        <Navbar.Brand as={NavLink} to="/" className="custom-white">
           <img
-            src="/images/logo-Conecta-jr.png"  
+            src="/images/logo-Conecta-jr.png"
             alt="Conecta Jr Logo"
-            style={{ width: "150px" }}
+            className="navbar-logo"
           />
-        
         </Navbar.Brand>
-        
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+
+        <Navbar.Toggle aria-controls="navbar-nav" />
+
+        <Navbar.Collapse id="navbar-nav">
+          {/* Navegación principal */}
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/mi-experiencia">Mi Experiencia</Nav.Link>
-            <Nav.Link as={Link} to="/consejos">Recursos</Nav.Link>
-            <Nav.Link as={Link} to="/proyectos">Proyectos</Nav.Link>
-            <Nav.Link as={Link} to="/conecta-en-corto">Conecta en corto</Nav.Link>
-            <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
-            <Nav.Link as={Link} to="/login">Login</Nav.Link> 
+            <Nav.Link as={NavLink} to="/"> Inicio</Nav.Link>
+            <Nav.Link as={NavLink} to="/MiExperiencia">Mi experiencia</Nav.Link>
+            <Nav.Link as={NavLink} to="/consejos">Recursos</Nav.Link>
+            <Nav.Link as={NavLink} to="/proyectos">Proyectos</Nav.Link>
+            <Nav.Link as={NavLink} to="/conecta-en-corto">Conecta en corto</Nav.Link>
+            <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
+          </Nav>
+
+          {/* Acciones de autenticación */}
+          <Nav className="align-items-lg-center gap-lg-2">
+            {!isAuth ? (
+              <>
+                <Nav.Link as={NavLink} to="/login">
+                  Login
+                </Nav.Link>
+                <Button
+                  as={NavLink}
+                  to="/signup"
+                  variant="success"
+                  size="sm"
+                >
+                  Registrarse
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="outline-light"
+                size="sm"
+                onClick={handleLogout}
+              >
+                Cerrar sesión
+              </Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
-      {/* 🔹 Contenedor para las visitas, alineado a la derecha */}
-      <div className="navbar-visits">
+
+      {/* Visitas (solo desktop) */}
+      <div className="navbar-visits d-none d-lg-flex">
         <Visits />
       </div>
     </Navbar>
-    
   );
 }
 

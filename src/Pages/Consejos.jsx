@@ -405,8 +405,6 @@ function Consejos() {
           </Col>
         </Row>
       </Container>
-
-      <Footer />
     </>
   );
 }

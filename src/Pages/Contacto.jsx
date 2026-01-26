@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
 import "../Styles/styles.scss";
-import Footer from "../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Contacto() {
   const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
@@ -44,13 +44,14 @@ function Contacto() {
 
   return (
     <>
-      <main className="contacto-seccion d-flex align-items-center justify-content-center">
+      <main className="contacto-seccion">
         <Container className="contacto-container py-5">
           <Row className="justify-content-center align-items-center">
             
             {/* Columna izquierda - Formulario */}
             <Col md={6}>
               <div className="contact-card rounded-4 shadow-lg p-4">
+                
                 <h2 className="text-center mb-3 fw-bold">Sumate a CONECTA JR</h2>
 
                 {exito && <Alert variant="success" className="fade-in">{exito}</Alert>}
@@ -94,7 +95,11 @@ function Contacto() {
                     />
                   </Form.Group>
 
-                  <Button type="submit" className="btn-conecta" disabled={enviando}>
+                  <button
+                    type="submit"
+                    className="btn-conecta w-100"
+                    disabled={enviando}
+                  >
                     {enviando ? (
                       <>
                         <Spinner animation="border" size="sm" /> Enviando...
@@ -102,18 +107,22 @@ function Contacto() {
                     ) : (
                       "Enviar mensaje"
                     )}
-                  </Button>
+                  </button>
+
                 </Form>
               </div>
             </Col>
           {/* Columna derecha - Info extra */}
-          <Col md={6} className="text-center">
+          <Col md={6} className="text-center d-none d-md-block">
             <h2 className="fw-bold mb-3">Conecta-te JR</h2>
             <p className="text-muted">
               Contame en qué etapa estás y seguimos conectados.
             </p>
             <p>
-              <a href="/Signup" className="btn btn-success">Registrate aquí</a>
+              <Link to="/signup" className="btn btn-success">
+                Registrate aquí
+              </Link>
+
             </p>
             <img 
               src="/images/conecta-tejr.png" 
@@ -126,8 +135,6 @@ function Contacto() {
           </Row>
         </Container>
       </main>
-
-      <Footer />
     </>
   );
 }

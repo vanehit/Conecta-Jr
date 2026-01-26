@@ -33,54 +33,120 @@ html, body, #root {
 
 main {
   flex: 1;
+  padding-top: 150px;
 }
 
 .container {
   padding: 20px;
 }
 
-.row {
-  margin-bottom: 20px;
-}
 
 @media (max-width: 768px) {
   .container {
     padding: 10px;
   }
+  main {
+    padding-top: 64px;
+  }
 }
+
+// ===========================
+// AuthLayout
+// ===========================
+
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eafaf6;
+  padding: 6rem 1rem 4rem;
+  
+}
+/* =========================
+   Volver al Home (Login)
+========================= */
+
+.back-home {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6c757d;
+  text-decoration: none;
+
+  &:hover {
+    color: #1c415d;
+    text-decoration: none;
+  }
+}
+
+
+
 
 // ===========================
 // Navbar
 // ===========================
 
-
 .navbar {
   margin: 0;
-  padding: 0;
+  padding: 0.4rem 0;
 }
 
+// Brand
 .navbar-brand.custom-white {
   background-color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 4px 6px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
+}
 
-  img {
-    margin-right: 10px;
+// Logo
+.navbar-logo {
+  height: 100px; 
+  width: auto;
+  display: block;
+}
+
+// Visitas
+.navbar-visits {
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #343a40;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+
+// ===========================
+// Mobile adjustments
+// ===========================
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-brand.custom-white {
+    padding: 3px 5px;
+  }
+
+  .navbar-logo {
+    height: 26px; 
+  }
+
+  .navbar-visits {
+    display: none;
   }
 }
 
-.navbar-visits {
-  margin-right: 40px; 
-  display: flex;
-  align-items: center;
-  background-color: #343a40; 
-  padding: 4px 12px;
-  border-radius: 20px;
-  color: white;
-  font-size: 14px;
-}
 
 
 /* =========================
@@ -98,15 +164,14 @@ main {
 
   background-size: cover;
   background-blend-mode: multiply;
-  background-position: 70% center;
-  min-height: 100vh;
+
+  min-height: calc(100vh - 80px);
   padding: 6rem 3rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  text-align: center;
   color: $text-light;
   position: relative;
 }
@@ -115,25 +180,10 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background:  rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
-
-/* =========================
-   LOGO FIJO (marca)
-========================= */
-
-.hero-logo {
-   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-logo img {
-  max-width: 260px; 
-  opacity: 0.9;     
-}
 
 /* =========================
    CONTENIDO
@@ -144,12 +194,17 @@ main {
   width: 100%;
 
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: minmax(220px, 320px) 1fr;
   gap: 4rem;
   align-items: center;
 
   position: relative;
   z-index: 2;
+}
+
+.hero-logo img {
+  max-width: 240px;
+  height: auto;
 }
 
 .hero-text {
@@ -170,9 +225,63 @@ main {
   line-height: 1.6;
   font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   opacity: 0.9;
-  max-width: 560px;
 }
 
+// ===========================
+// Mobile adjustments Hero
+// ===========================
+
+@media (max-width: 768px) {
+
+  .hero-banner {
+    padding: 4rem 1.5rem;
+     background-position: center center;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-logo img {
+    max-width: 180px;
+    margin: 0 auto;
+  }
+
+  .hero-text {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+/* =========================
+   PARA QUIÉN ES
+========================= */
+
+.persona-card {
+   background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.persona-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.persona-card p {
+  margin: 0;
+}
 
 /* =========================
    CTA
@@ -182,6 +291,7 @@ main {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  justify-content: flex-start;
 }
 
 .hero-cta a {
@@ -269,41 +379,35 @@ main {
   }
 }
 
-// ===========================
-// Sección Contacto
-// ===========================
-.contacto-seccion {
-  min-height: calc(100vh - 180px); // navbar + footer
-  padding: 120px 0 60px;           // top y bottom
-  background: #eafaf6;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+/* ===========================
+   Sección Contacto / Login
+=========================== */
 
-  // Responsive
-  @media (max-width: 768px) {
-    padding: 80px 0 40px;
+.contacto-seccion {
+  min-height: calc(100vh - 80px);
+  background: #eafaf6;
+  padding: 6rem 1rem 4rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contacto-seccion {
+    padding-top: 7rem; 
+  }
+
+  .btn-conecta {
+    width: 100%;
   }
 }
 
-// ===========================
-// Contacto
-// ===========================
-
-.contacto-seccion {
-  min-height: 100vh;
-  background: #e0fff8;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: center;
-}
+/* ===========================
+   Card
+=========================== */
 
 .contact-card {
   @extend .card;
   background-color: #ffffff;
   border-left: 6px solid $accent-color;
-  max-width: 600px;
-  width: 100%;
 }
 
 // ===========================
@@ -345,42 +449,6 @@ main {
   }
 }
 
-
-
-// Mejoramos el espaciado en móviles
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  .card {
-    margin-bottom: 20px;
-  }
-
-  .navbar {
-    text-align: center;
-  }
-
-  .navbar-brand img {
-    width: 120px;
-  }
-
-  // Ajustamos color de fecha en la línea de tiempo para mobile
-  .vertical-timeline-element-date {
-    color: #0c0c0c !important;
-  }
-
-  .navbar-brand.custom-white {
-    padding: 3px 6px;
-
-    img {
-      width: 120px;
-      margin-right: 5px;
-    }
-  }
-}
-
-
 @keyframes glow {
   0%, 100% {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
@@ -414,36 +482,20 @@ main {
   margin-top: auto;
 }
 
-//Contacto
-.contacto-seccion {
-  min-height: 100vh;
-  background: #e0fff8; // Suave, complementario al logo
-  padding: 2rem 0;
-}
-
-.contact-card {
-  background: #ffffff;
-  border-left: 6px solid #00c9a7; // Verde agua del logo
-}
-.img-conectatejr {
-  max-width: 350px;
-  margin-left: 130px;
-}
-
 
 // ===========================
 // Carousel de Cards
 // ===========================
 .carousel-section {
-  background-color: #121212; // fondo oscuro como el header
+  background-color: #121212; 
   padding: 3rem 0;
 
   .card-custom {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    max-width: 400px; // por ejemplo, limita el ancho
-    margin: auto;      // centra la card
+    max-width: 400px; 
+    margin: auto;     
 
     .card-title{
       color: #1c415d;
@@ -453,7 +505,7 @@ main {
       color: #42eb99; 
       font-size: 2rem; 
       transition: transform 0.3s ease, color 0.3s ease;
-      margin: 0 auto 1rem auto; // centrado horizontal y margen abajo
+      margin: 0 auto 1rem auto; 
     }
 
     &:hover {
@@ -537,25 +589,41 @@ main {
     }
   }
 }
+
+// ===========================
+// Btn 
+// ===========================
+
 .btn-conecta {
-  background-color: #42eb99;
-  color: white;
-  font-weight: bold;
+  background-color: #42eb99 !important;
   border: none;
-  border-radius: 8px;
-  padding: 4px 12px;  /* más compacto */
-  font-size: 0.8rem;  /* texto más pequeño */
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-  width: auto;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
   cursor: pointer;
+  transition: all 0.3s ease; 
+  text-decoration: none;
 }
 
 .btn-conecta:hover {
-  background-color: #1c415d;
+  background-color: #1c415d !important;
+  color: #fff;
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+  text-decoration: none;
 }
+
+@media (min-width: 768px) {
+  .btn-conecta {
+    width: auto;
+    font-size: 0.9rem;
+  }
+}
+
 
 // ===========================
 // Carousel de Cards
