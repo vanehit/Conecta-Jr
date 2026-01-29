@@ -5,8 +5,13 @@ import "../../Styles/styles.scss";
 function Visits({ user }) {
   const { totalVisitas, loading, error } = useRegisterVisit(user?._id);
 
-  if (loading) return <span>Cargando...</span>;
-  if (error) return <span>Error al cargar visitas</span>;
+  if (loading || error) {
+    return (
+      <span className="visits-badge">
+        <FaEye className="eye-icon" /> —
+      </span>
+    );
+  }
 
   return (
     <span className="visits-badge">
