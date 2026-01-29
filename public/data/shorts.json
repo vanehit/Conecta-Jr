@@ -1,0 +1,35 @@
+[
+ {
+  "id": 1,
+  "title": "El poder de JavaScript",
+  "description": "El lenguaje base de la web. Ideal para empezar en frontend y backend.",
+  "video": "/videos/ElPoderDeJS.mp4",
+  "link": "/pdfs/JavaScript-para-Juniors.pdf",
+  "docLink": "https://developer.mozilla.org/es/docs/Web/JavaScript",
+  "tags": [
+    { "label": "JavaScript", "variant": "bg-success" },
+    { "label": "Fundamentos", "variant": "bg-secondary" }
+  ]
+},
+
+  {
+    "id": 2,
+    "title": "¿Qué es TypeScript?",
+    "description": "JavaScript con superpoderes: tipos, menos errores y más claridad.",
+    "video": "/videos/typescript-intro.mp4",
+    "tags": [
+      { "label": "TypeScript", "variant": "bg-primary" },
+      { "label": "Tipado", "variant": "bg-secondary" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "¿Frontend o Backend?",
+    "description": "Diferencias clave para entender por dónde arrancar como dev.",
+    "video": "/videos/frontend-backend.mp4",
+    "tags": [
+      { "label": "Carrera", "variant": "bg-warning text-dark" },
+      { "label": "Junior", "variant": "bg-secondary" }
+    ]
+  }
+]
