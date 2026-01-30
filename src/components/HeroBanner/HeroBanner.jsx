@@ -52,7 +52,7 @@ const HeroBanner = () => {
               Explorar recursos
             </Link>
 
-            <Link to="/mi-experiencia" className="secondary">
+            <Link to="MiExperiencia" className="secondary">
               Mi Experiencia
             </Link>
           </motion.div>

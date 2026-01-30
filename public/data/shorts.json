@@ -1,19 +1,45 @@
 [
- {
-  "id": 1,
-  "title": "El poder de JavaScript",
-  "description": "El lenguaje base de la web. Ideal para empezar en frontend y backend.",
-  "video": "/videos/ElPoderDeJS.mp4",
-  "link": "/pdfs/JavaScript-para-Juniors.pdf",
-  "docLink": "https://developer.mozilla.org/es/docs/Web/JavaScript",
-  "tags": [
-    { "label": "JavaScript", "variant": "bg-success" },
-    { "label": "Fundamentos", "variant": "bg-secondary" }
-  ]
-},
+  {
+    "id": 1,
+    "title": "HTML5 para profesionales",
+    "description": "La base de toda página web: estructura, semántica y buenas prácticas.",
+    "video": "/videos/html5-intro.mp4",
+    "link": "/pdfs/HTML5-para-Juniors.pdf",
+    "docLink": "https://developer.mozilla.org/es/docs/Web/HTML",
+    "tags": [
+      { "label": "HTML5", "variant": "bg-danger" },
+      { "label": "Fundamentos", "variant": "bg-secondary" }
+    ]
+  },
 
   {
     "id": 2,
+    "title": "CSS: diseño y estilo profesional",
+    "description": "Cómo dar estilo a la web y pensar layouts como un desarrollador.",
+    "video": "/videos/css-intro.mp4",
+    "link": "/pdfs/CSS-para-Juniors.pdf",
+    "docLink": "https://developer.mozilla.org/es/docs/Web/CSS",
+    "tags": [
+      { "label": "CSS", "variant": "bg-info" },
+      { "label": "Diseño", "variant": "bg-secondary" }
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "El poder de JavaScript",
+    "description": "El lenguaje base de la web. Ideal para empezar en frontend y backend.",
+    "video": "/videos/ElPoderDeJS.mp4",
+    "link": "/pdfs/JavaScript-para-Juniors.pdf",
+    "docLink": "https://developer.mozilla.org/es/docs/Web/JavaScript",
+    "tags": [
+      { "label": "JavaScript", "variant": "bg-success" },
+      { "label": "Fundamentos", "variant": "bg-secondary" }
+    ]
+  },
+
+  {
+    "id": 4,
     "title": "¿Qué es TypeScript?",
     "description": "JavaScript con superpoderes: tipos, menos errores y más claridad.",
     "video": "/videos/typescript-intro.mp4",
@@ -22,8 +48,9 @@
       { "label": "Tipado", "variant": "bg-secondary" }
     ]
   },
+
   {
-    "id": 3,
+    "id": 5,
     "title": "¿Frontend o Backend?",
     "description": "Diferencias clave para entender por dónde arrancar como dev.",
     "video": "/videos/frontend-backend.mp4",

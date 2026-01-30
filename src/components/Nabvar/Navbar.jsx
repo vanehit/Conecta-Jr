@@ -30,7 +30,7 @@ function CustomNavbar() {
           {/* Navegación principal */}
           <Nav className="me-auto">
             <Nav.Link as={NavLink} to="/"> Inicio</Nav.Link>
-            <Nav.Link as={NavLink} to="/MiExperiencia">Mi experiencia</Nav.Link>
+            <Nav.Link as={NavLink} to="/MiExperiencia">Acerca de mí</Nav.Link>
             <Nav.Link as={NavLink} to="/consejos">Recursos</Nav.Link>
             <Nav.Link as={NavLink} to="/proyectos">Proyectos</Nav.Link>
             <Nav.Link as={NavLink} to="/conecta-en-corto">Conecta en corto</Nav.Link>
