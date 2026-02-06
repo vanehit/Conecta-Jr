@@ -25,37 +25,37 @@ const HeroBanner = () => {
 
         {/* TEXTO DERECHA */}
         <div className="hero-text">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            CONECTA JR
-          </motion.h1>
+          <div className="hero-text-inner">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+            Sabés programar, pero no sabés cómo llegar a tu primer trabajo.
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Recursos, acompañamiento y experiencias reales para programadores
-            juniors que quieren dar su primer paso profesional.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+            En CONECTA JR ordenás qué estudiar, mejorás tus proyectos y te preparás para entrevistas reales, sin vueltas ni promesas falsas.
+            </motion.p>
 
-          <motion.div
-            className="hero-cta"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Link to="/consejos" className="primary">
-              Explorar recursos
-            </Link>
-
-            <Link to="MiExperiencia" className="secondary">
-              Mi Experiencia
-            </Link>
-          </motion.div>
+            <motion.div
+              className="hero-cta"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <Link to="/roadmap" className="primary">
+                👉 Empezar mi roadmap junior
+              </Link>
+            </motion.div>
+            <p className="hero-note">
+              Creado por una developer junior para acompañar a otros juniors.
+            </p>
+          </div>
         </div>
       </div>
     </motion.section>

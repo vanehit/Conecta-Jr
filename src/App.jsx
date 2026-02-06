@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
-import MiExperiencia from "./Pages/MiExperiencia";
 import Consejos from "./Pages/Consejos";
 import ConectaEnCorto from "./Pages/ConectaEnCorto"
 import Contacto from "./Pages/Contacto";
@@ -9,7 +8,7 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
-import Proyectos from "./Pages/Proyectos";
+import Roadmap from "./Pages/Roadmap";
 
 function App() {
   return (
@@ -19,10 +18,9 @@ function App() {
         {/* Layout principal */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/miExperiencia" element={<MiExperiencia />} />
           <Route path="/consejos" element={<Consejos />} />
-          <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/conecta-en-corto" element={<ConectaEnCorto />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/contacto" element={<Contacto />} />
         </Route>
 

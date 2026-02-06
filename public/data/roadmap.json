@@ -1,0 +1,55 @@
+[
+  {
+    "id": "html-css",
+    "order": 1,
+    "level": "fundamentos",
+    "title": "HTML & CSS",
+    "description": "Bases sólidas para crear interfaces web.",
+    "topics": [
+      "HTML semántico",
+      "Flexbox",
+      "Grid",
+      "Responsive design"
+    ]
+  },
+  {
+    "id": "javascript",
+    "order": 2,
+    "level": "fundamentos",
+    "title": "JavaScript",
+    "description": "Lógica, interacción y fundamentos del lenguaje.",
+    "topics": [
+      "Variables",
+      "Funciones",
+      "DOM",
+      "Eventos",
+      "Fetch API"
+    ]
+  },
+  {
+    "id": "react",
+    "order": 3,
+    "level": "frontend",
+    "title": "React",
+    "description": "Construcción de interfaces modernas.",
+    "topics": [
+      "Componentes",
+      "Props",
+      "State",
+      "Hooks",
+      "Routing"
+    ]
+  },
+  {
+    "id": "proyectos",
+    "order": 4,
+    "level": "práctica",
+    "title": "Proyectos reales",
+    "description": "Aplicar lo aprendido en proyectos concretos.",
+    "topics": [
+      "Landing page",
+      "CRUD simple",
+      "Portfolio"
+    ]
+  }
+]

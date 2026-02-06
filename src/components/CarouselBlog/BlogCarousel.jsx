@@ -7,27 +7,27 @@ import Button from "../HeroBanner/Button";
 const BlogCarousel = () => {
   const items = [
     {
-      title: "Mi Experiencia",
-      text: "Historias y aprendizajes que quiero compartir con vos.",
-      icon: "fas fa-briefcase",
-      link: "/mi-experiencia",
+      title: "🧭 Roadmap Junior",
+      text: "Un camino claro para aprender desarrollo paso a paso, sin perderte.",
+      icon: "fas fa-map-signs",
+      link: "/roadmap",
     },
     {
-      title: "Consejos",
-      text: "Tips prácticos para aprender y aplicar en tu día a día.",
+      title: "📚 Recursos",
+      text: "Guías, consejos y material curado para avanzar de verdad.",
       icon: "fas fa-lightbulb",
       link: "/consejos",
     },
     {
-      title: "Proyectos",
-      text: "Aquí se compartirán pequeños proyectos utilizando tecnologías clave como React, Vite, Sass, Axios, Git y demás",
-      icon: "fas fa-project-diagram",
-      link: "/proyectos",
+      title: "⚡ Conecta en corto",
+      text: "Píldoras rápidas para destrabarte y seguir avanzando.",
+      icon: "fas fa-bolt",
+      link: "/conecta-en-corto",
     },
     {
-      title: "Contacto",
-      text: "Escribime y construyamos comunidad juntos.",
-      icon: "fas fa-envelope",
+      title: "🤝 Comunidad",
+      text: "Sumate, compartí el proceso y aprendamos juntos.",
+      icon: "fas fa-users",
       link: "/contacto",
     },
   ];
@@ -35,19 +35,21 @@ const BlogCarousel = () => {
   return (
     <section className="carousel-section">
       <Container>
-        <Carousel indicators={false}>
+        <Carousel indicators={false} interval={5000}>
           {items.map((item, index) => (
             <Carousel.Item key={index}>
               <Card className="card-custom text-center p-4">
-                {/* Ícono */}
-                <i className={`${item.icon} fa-3x mb-3`}></i>
+                <i className={`${item.icon} fa-3x mb-3`} />
 
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>{item.text}</Card.Text>
 
-                {/* Botón como Link */}
-                <Button className="btn-conecta" as={Link} to={item.link}>
-                  Leer más
+                <Button
+                  className="btn-conecta mt-3"
+                  as={Link}
+                  to={item.link}
+                >
+                  Explorar
                 </Button>
               </Card>
             </Carousel.Item>

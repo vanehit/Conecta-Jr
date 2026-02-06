@@ -26,8 +26,8 @@ function Home() {
           <div className="col-md-4">
             <div className="persona-card h-100 p-4 rounded-4 shadow-sm">
               <p>
-                Estás aprendiendo desarrollo web y te sentís un poco perdido/a
-                sobre qué camino seguir.
+                Estás aprendiendo desarrollo web y te sentís perdido/a sobre qué
+                camino seguir.
               </p>
             </div>
           </div>
@@ -35,8 +35,8 @@ function Home() {
           <div className="col-md-4">
             <div className="persona-card h-100 p-4 rounded-4 shadow-sm">
               <p>
-                Ya estudiaste HTML, CSS, JavaScript o React, pero te cuesta
-                llevarlo a proyectos reales o armar tu perfil profesional.
+                Ya viste HTML, CSS, JavaScript o React, pero te cuesta llevarlo
+                a proyectos reales o armar tu perfil profesional.
               </p>
             </div>
           </div>
@@ -44,10 +44,25 @@ function Home() {
           <div className="col-md-4">
             <div className="persona-card h-100 p-4 rounded-4 shadow-sm">
               <p>
-                Buscás una comunidad donde compartir el proceso, equivocarte,
-                aprender y crecer sin compararte con seniors.
+                Buscás una comunidad donde aprender sin compararte con seniors
+                y compartir el proceso real.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* QUIÉN SOY / POR QUÉ EXISTE */}
+      <section className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-lg-8 text-center">
+            <h3 className="fw-bold mb-3">¿Por qué existe Conecta JR?</h3>
+            <p className="text-muted fs-5">
+              Soy Vanesa desarrolladora web fullstack y vengo del diseño. Pasé por la etapa junior,
+              la confusión, los cursos sueltos y la sensación de “no estar lista”.
+              Conecta JR nace para ordenar ese camino, compartir lo real
+              (sin humo) y acompañarnos mientras aprendemos.
+            </p>
           </div>
         </div>
       </section>
@@ -57,13 +72,11 @@ function Home() {
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-8">
             <div className="contact-card p-4 rounded-4 shadow-lg text-center">
-              <h3 className="card-title mb-3">
-                Sumate a la comunidad
-              </h3>
+              <h3 className="card-title mb-3">Sumate a la comunidad</h3>
 
               <p className="text-muted mb-4">
-                Un espacio para aprender, compartir el proceso y acompañarnos
-                entre quienes estamos empezando en tecnología.
+                Aprender, equivocarnos y crecer juntos en el mundo tech,
+                paso a paso.
               </p>
 
               <Link to="/signup" className="btn-conecta w-100">
