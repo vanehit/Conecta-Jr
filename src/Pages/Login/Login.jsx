@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Alert, Spinner } from "react-bootstrap";
+import { GoogleLogin } from "@react-oauth/google";
 import "../../Styles/styles.scss";
 
 function Login() {
@@ -31,6 +32,7 @@ function Login() {
       if (!res.ok) throw new Error("Credenciales inválidas");
 
       const data = await res.json();
+
       localStorage.setItem("userId", data.userId);
       localStorage.setItem("token", data.token);
 
@@ -42,12 +44,39 @@ function Login() {
     }
   };
 
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      setError(null);
+
+      const res = await fetch(
+        "https://conectajr-backend.onrender.com/api/users/google-login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            credential: credentialResponse.credential,
+          }),
+        }
+      );
+
+      if (!res.ok) throw new Error("Error con Google login");
+
+      const data = await res.json();
+
+      localStorage.setItem("userId", data.userId);
+      localStorage.setItem("token", data.token);
+
+      navigate("/");
+    } catch (err) {
+      setError("No se pudo iniciar sesión con Google.");
+    }
+  };
+
   return (
     <main className="contacto-seccion">
       <Container className="contacto-container py-5">
         <Row className="justify-content-center">
           <Col md={8} lg={6}>
-            {/* Link fuera de la card */}
             <Link to="/" className="back-home mb-3 d-inline-block">
               ← Volver al inicio
             </Link>
@@ -58,7 +87,11 @@ function Login() {
                 Accedé para seguir el proceso y participar del espacio CONECTA JR.
               </p>
 
-              {error && <Alert variant="danger" className="fade-in">{error}</Alert>}
+              {error && (
+                <Alert variant="danger" className="fade-in">
+                  {error}
+                </Alert>
+              )}
 
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
@@ -98,6 +131,21 @@ function Login() {
                     "Iniciar sesión"
                   )}
                 </button>
+
+                {/* Separador */}
+                <div className="text-center my-4 text-muted small">
+                  ───── o continuar con ─────
+                </div>
+
+                {/* Google Login */}
+                <div className="d-flex justify-content-center mb-3">
+                  <GoogleLogin
+                    onSuccess={handleGoogleSuccess}
+                    onError={() =>
+                      setError("Error al iniciar sesión con Google")
+                    }
+                  />
+                </div>
 
                 <p className="text-center mt-3">
                   ¿No tenés cuenta?{" "}

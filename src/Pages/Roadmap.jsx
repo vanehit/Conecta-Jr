@@ -16,7 +16,7 @@ function Roadmap() {
   return (
     <div className="container py-5">
       <h1 className="mb-4 text-center">🧭 Mi Roadmap Junior</h1>
-
+      <AIRecommendations completed={completed} />
       <ProgressTracker
         completedCount={completed.length}
         total={roadmapData.length}
@@ -31,7 +31,7 @@ function Roadmap() {
         />
       ))}
 
-      <AIRecommendations completed={completed} />
+     
     </div>
   );
 }
