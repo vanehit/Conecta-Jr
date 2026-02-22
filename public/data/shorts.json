@@ -43,6 +43,8 @@
     "title": "¿Qué es TypeScript?",
     "description": "JavaScript con superpoderes: tipos, menos errores y más claridad.",
     "video": "/videos/typescript-intro.mp4",
+    "link": "/pdfs/",
+    "docLink": "https://www.typescriptlang.org/",
     "tags": [
       { "label": "TypeScript", "variant": "bg-primary" },
       { "label": "Tipado", "variant": "bg-secondary" }
