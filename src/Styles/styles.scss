@@ -735,3 +735,39 @@ main {
   text-decoration: underline;
 }
 
+// ===========================
+// btn short card
+// ===========================
+.btn-outline-danger:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.15);
+}
+
+.like-btn .heart {
+  transition: transform 0.2s ease;
+}
+
+.like-btn.liked .heart {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}

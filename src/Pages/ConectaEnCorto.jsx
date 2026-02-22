@@ -18,7 +18,7 @@ function ConectaEnCorto() {
       <div className="text-center mb-5">
         <h1>Conecta en corto</h1>
         <p className="text-muted">
-         Píldoras prácticas para avanzar en tu roadmap junior
+          Píldoras prácticas para avanzar en tu roadmap junior
         </p>
       </div>
 
