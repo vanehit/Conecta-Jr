@@ -1,0 +1,39 @@
+{
+  "consejos": [
+    {
+      "title": "Practica diariamente",
+      "description": "La consistencia es clave. Dedica al menos 30 minutos al día para escribir código.",
+      "image": "/images/espacio-trabajo.png"
+    },
+    {
+      "title": "Participa en la comunidad",
+      "description": "Haz preguntas y ayuda a otros en comunidades como Stack Overflow o foros de Discord.",
+      "link": "https://stackoverflow.com",
+      "image": "/images/comunidad.png"
+    },
+    {
+      "title": "Consulta recursos confiables",
+      "description": "Plataformas como MDN Web Docs y W3Schools son esenciales.",
+      "links": [
+        { "name": "MDN", "url": "https://developer.mozilla.org" },
+        { "name": "W3Schools", "url": "https://www.w3schools.com" }
+      ],
+      "image": "/images/recursos-confiables.png"
+    },
+    {
+      "title": "Aprende a depurar",
+      "description": "No tengas miedo de los errores. Aprende a usar herramientas de depuración.",
+      "image": "/images/Aprende-a-depurar.png"
+    },
+    {
+      "title": "Haz proyectos propios",
+      "description": "Son la mejor forma de aplicar lo aprendido y mostrar tu progreso.",
+      "image": "/images/proyectos-propios.png"
+    },
+    {
+      "title": "Domina un editor de código",
+      "description": "Usa VSCode, aprende sus atajos y personalízalo.",
+      "image": "/images/editor-codigo.png"
+    }
+  ]
+}

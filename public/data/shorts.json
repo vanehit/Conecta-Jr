@@ -17,7 +17,7 @@
     "title": "CSS: diseño y estilo profesional",
     "description": "Cómo dar estilo a la web y pensar layouts como un desarrollador.",
     "video": "/videos/css-intro.mp4",
-    "link": "/pdfs/CSS-para-Juniors.pdf",
+    "link": "/pdfs/CSS-para-juniors.pdf",
     "docLink": "https://developer.mozilla.org/es/docs/Web/CSS",
     "tags": [
       { "label": "CSS", "variant": "bg-info" },

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function ShortCard({
   id,
@@ -7,48 +7,44 @@ function ShortCard({
   video,
   tags,
   link,
-  docLink
+  docLink,
+  locked,
+  likes: initialLikes,
+  liked: initialLiked
 }) {
-  const [likes, setLikes] = useState(0);
-  const [alreadyLiked, setAlreadyLiked] = useState(false);
+  const [likes, setLikes] = useState(initialLikes || 0);
+  const [liked, setLiked] = useState(initialLiked || false);
 
-  // Cargar estado desde localStorage
-  useEffect(() => {
-    const storedLikes = localStorage.getItem(`likes-${id}`);
-    const liked = localStorage.getItem(`liked-${id}`);
+  const token = localStorage.getItem("token");
 
-    if (storedLikes) {
-      setLikes(Number(storedLikes));
+  const handleLike = async () => {
+    if (!token || locked) return;
+
+    const nextLiked = !liked;
+
+    // 🚀 Optimistic update
+    setLiked(nextLiked);
+    setLikes((prev) => (nextLiked ? prev + 1 : prev - 1));
+
+    try {
+      await fetch(`http://localhost:5000/api/likes/${id}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    } catch (error) {
+      // 🔄 revert if fails
+      setLiked(!nextLiked);
+      setLikes((prev) => (nextLiked ? prev - 1 : prev + 1));
     }
-
-    if (liked) {
-      setAlreadyLiked(true);
-    }
-  }, [id]);
-
-  // Toggle like
-  const handleLike = () => {
-    let newLikes;
-
-    if (alreadyLiked) {
-      newLikes = likes - 1;
-      setAlreadyLiked(false);
-      localStorage.removeItem(`liked-${id}`);
-    } else {
-      newLikes = likes + 1;
-      setAlreadyLiked(true);
-      localStorage.setItem(`liked-${id}`, "true");
-    }
-
-    setLikes(newLikes);
-    localStorage.setItem(`likes-${id}`, newLikes.toString());
   };
 
   return (
-    <div className="card h-100 shadow-sm border-0">
+    <div className={`card h-100 shadow-sm border-0 ${locked ? "opacity-50" : ""}`}>
       <video
         src={video}
-        controls
+        controls={!locked}
         className="w-100 rounded-top"
         style={{ maxHeight: "220px", objectFit: "cover" }}
       />
@@ -57,7 +53,6 @@ function ShortCard({
         <h5 className="card-title">{title}</h5>
         <p className="card-text text-muted">{description}</p>
 
-        {/* Tags */}
         <div className="d-flex gap-2 flex-wrap mb-3">
           {tags.map((tag, index) => (
             <span key={index} className={`badge ${tag.variant}`}>
@@ -66,22 +61,20 @@ function ShortCard({
           ))}
         </div>
 
-        {/* Like social minimal */}
+        {/* ❤️ Like */}
         <div className="mb-3">
           <button
             onClick={handleLike}
-            className={`like-btn ${alreadyLiked ? "liked" : ""}`}
+            className={`like-btn ${liked ? "liked" : ""}`}
+            disabled={locked}
           >
-            <span className="heart">
-              {alreadyLiked ? "❤️" : "🤍"}
-            </span>
+            <span>{liked ? "❤️" : "🤍"}</span>
             <span className="ms-1">{likes}</span>
           </button>
         </div>
 
-        {/* Botones */}
         <div className="mt-auto d-flex gap-2">
-          {link && (
+          {link && !locked && (
             <a
               href={link}
               target="_blank"
@@ -92,7 +85,7 @@ function ShortCard({
             </a>
           )}
 
-          {docLink && (
+          {docLink && !locked && (
             <a
               href={docLink}
               target="_blank"
@@ -103,6 +96,12 @@ function ShortCard({
             </a>
           )}
         </div>
+
+        {locked && (
+          <div className="mt-3 text-danger small">
+            🔒 Contenido premium
+          </div>
+        )}
       </div>
     </div>
   );

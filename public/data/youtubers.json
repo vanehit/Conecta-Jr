@@ -1,0 +1,16 @@
+{
+  "youtubers": [
+    { "title": "Traversy Media", "description": "Desarrollo web y frameworks modernos.", "link": "https://www.youtube.com/c/TraversyMedia" },
+    { "title": "freeCodeCamp", "description": "Cursos completos de desarrollo web y ciencia de datos.", "link": "https://www.youtube.com/c/Freecodecamp" },
+    { "title": "Midudev", "description": "JavaScript, React, Node.js y desarrollo Fullstack.", "link": "https://www.youtube.com/c/midudev" },
+    { "title": "Fazt", "description": "Tutoriales prácticos de desarrollo web.", "link": "https://www.youtube.com/c/FaztTech" },
+    { "title": "The Net Ninja", "description": "Cursos detallados de React, Vue y JS.", "link": "https://www.youtube.com/c/TheNetNinja" },
+    { "title": "HolaMundo", "description": "Consejos y noticias del mundo de la programación.", "link": "https://www.youtube.com/@mouredev" },
+    { "title": "Carlos Azaustre", "description": "JavaScript, React y desarrollo web en español.", "link": "https://www.youtube.com/c/CarlosAzaustre" },
+    { "title": "MoureDev", "description": "Cursos y tutoriales de programación en español.", "link": "https://www.youtube.com/c/MoureDev" },
+    { "title": "Web Dev Simplified", "description": "Conceptos complejos explicados de forma sencilla.", "link": "https://www.youtube.com/c/WebDevSimplified" },
+    { "title": "Fireship", "description": "Resúmenes rápidos de tecnologías y frameworks.", "link": "https://www.youtube.com/c/Fireship" },
+    { "title": "Academia Hacker", "description": "Seguridad informática y desarrollo backend.", "link": "https://www.youtube.com/@AcademiaHackerCS" },
+    { "title": "Jon Mircha", "description": "Cursos profundos de JavaScript y desarrollo backend.", "link": "https://www.youtube.com/c/jonmircha" }
+  ]
+}

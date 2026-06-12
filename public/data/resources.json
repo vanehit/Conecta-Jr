@@ -1,0 +1,13 @@
+{
+  "plataformas": [
+    { "title": "HackerEarth", "description": "Desafíos reales de empresas.", "link": "https://www.hackerearth.com" },
+    { "title": "Codility", "description": "Tests automatizados.", "link": "https://www.codility.com" },
+    { "title": "TestGorilla", "description": "Backend, frontend y fullstack.", "link": "https://www.testgorilla.com" },
+    { "title": "Kaggle", "description": "Análisis de datos.", "link": "https://www.kaggle.com" },
+    { "title": "LeetCode", "description": "Retos técnicos.", "link": "https://leetcode.com" },
+    { "title": "Frontend Mentor", "description": "Maquetado frontend.", "link": "https://www.frontendmentor.io" },
+    { "title": "Codewars", "description": "Katas para JS.", "link": "https://www.codewars.com" },
+    { "title": "Selenium HQ", "description": "Pruebas automatizadas.", "link": "https://www.selenium.dev" },
+    { "title": "Spring Boot Guides", "description": "Tests con Spring.", "link": "https://spring.io/guides" }
+  ]
+}
