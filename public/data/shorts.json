@@ -11,7 +11,6 @@
       { "label": "Fundamentos", "variant": "bg-secondary" }
     ]
   },
-
   {
     "id": 2,
     "title": "CSS: diseño y estilo profesional",
@@ -24,7 +23,6 @@
       { "label": "Diseño", "variant": "bg-secondary" }
     ]
   },
-
   {
     "id": 3,
     "title": "El poder de JavaScript",
@@ -37,28 +35,28 @@
       { "label": "Fundamentos", "variant": "bg-secondary" }
     ]
   },
-
   {
     "id": 4,
     "title": "¿Qué es TypeScript?",
     "description": "JavaScript con superpoderes: tipos, menos errores y más claridad.",
     "video": "/videos/typescript-intro.mp4",
-    "link": "/pdfs/",
+    "link": "/images/Guía_Esencial_de_TypeScript.png",
     "docLink": "https://www.typescriptlang.org/",
     "tags": [
       { "label": "TypeScript", "variant": "bg-primary" },
       { "label": "Tipado", "variant": "bg-secondary" }
     ]
   },
-
   {
-    "id": 5,
-    "title": "¿Frontend o Backend?",
-    "description": "Diferencias clave para entender por dónde arrancar como dev.",
-    "video": "/videos/frontend-backend.mp4",
-    "tags": [
-      { "label": "Carrera", "variant": "bg-warning text-dark" },
-      { "label": "Junior", "variant": "bg-secondary" }
-    ]
-  }
+  "id": 5,
+  "title": "¿Frontend o Backend?",
+  "description": "Diferencias clave para entender por dónde arrancar como dev.",
+  "video": "/videos/frontend-backend.mp4",
+  "link": "/images/Diferencias_entre_Frontend_y_Backend.png", 
+  "docLink": "https://roadmap.sh/",
+  "tags": [
+    { "label": "Carrera", "variant": "bg-warning text-dark" },
+    { "label": "Junior", "variant": "bg-secondary" }
+  ]
+}
 ]
