@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
-import Visits from "../Visits/Visits";
+
 
 function CustomNavbar() {
   const navigate = useNavigate();
@@ -74,10 +74,7 @@ function CustomNavbar() {
         </Navbar.Collapse>
       </Container>
 
-      {/* Visitas */}
-      <div className="navbar-visits d-none d-lg-flex">
-        <Visits />
-      </div>
+      
     </Navbar>
   );
 }
