@@ -9,9 +9,7 @@ function Contacto() {
   const [exito, setExito] = useState(null);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,112 +24,70 @@ function Contacto() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Error en la respuesta del servidor");
-      }
-
-      const data = await response.json();
-      setExito(data.mensaje || "¡Gracias por tu mensaje!");
+      if (!response.ok) throw new Error("Error en el servidor");
+      setExito("¡Gracias por tu mensaje! Te responderé a la brevedad.");
       setFormData({ nombre: "", email: "", mensaje: "" });
     } catch (err) {
-      setError(err.message || "Ocurrió un error al enviar tu mensaje.");
+      setError("Ocurrió un error al enviar el mensaje.");
     } finally {
       setEnviando(false);
     }
   };
 
   return (
-    <main className="contacto-seccion">
-      <Container className="contacto-container py-5">
+    <main className="contacto-seccion py-5">
+      <Container>
         <Row className="justify-content-center align-items-center">
-          {/* Columna izquierda - Formulario */}
           <Col md={6}>
             <div className="contact-card rounded-4 shadow-lg p-4">
               <h2 className="text-center mb-3 fw-bold">Sumate a CONECTA JR</h2>
-
-              {exito && <Alert variant="success" className="fade-in">{exito}</Alert>}
-              {error && <Alert variant="danger" className="fade-in">{error}</Alert>}
-
+              
+              {exito && <Alert variant="success">{exito}</Alert>}
+              {error && <Alert variant="danger">{error}</Alert>}
+              
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                   <Form.Label>Nombre</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="nombre"
-                    placeholder="Tu nombre"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Control type="text" name="nombre" value={formData.nombre} onChange={handleChange} required />
                 </Form.Group>
-
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="email"
-                    placeholder="Tu correo electrónico"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
                 </Form.Group>
-
                 <Form.Group className="mb-4">
                   <Form.Label>Mensaje</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    name="mensaje"
-                    placeholder="Contame en qué etapa estás como developer junior 😊"
-                    rows={4}
-                    value={formData.mensaje}
-                    onChange={handleChange}
-                    required
-                  />
+                  <Form.Control as="textarea" name="mensaje" value={formData.mensaje} onChange={handleChange} rows={4} required />
                 </Form.Group>
-
-                <Button
-                  type="submit"
-                  className="btn-conecta w-100"
-                  disabled={enviando}
-                >
-                  {enviando ? (
-                    <>
-                      <Spinner animation="border" size="sm" className="me-2" /> 
-                      Enviando...
-                    </>
-                  ) : (
-                    "Enviar mensaje"
-                  )}
+                <Button type="submit" className="btn-conecta w-100" disabled={enviando}>
+                  {enviando ? <Spinner animation="border" size="sm" /> : "Enviar mensaje"}
                 </Button>
               </Form>
+
+              {/* Bloque de aporte voluntario */}
+              <div className="mt-4 p-3 bg-light rounded text-center border">
+                <p className="mb-2 small text-muted">
+                  ¿Te ayudó CONECTA-JR? Un pequeño aporte me permite seguir creando recursos y manteniendo la comunidad.
+                </p>
+                <a
+                  href="https://paypal.me/vanesapaolasoria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-warning btn-sm fw-bold"
+                >
+                  Invitar un cafecito (o lo que puedas) ☕
+                </a>
+              </div>
             </div>
           </Col>
 
-          {/* Columna derecha - Invitación cercana */}
           <Col md={6} className="text-center d-none d-md-block p-4">
             <h2 className="fw-bold mb-3">¿Te gusta lo que ves?</h2>
             <p className="text-muted fs-5 mb-4">
-              Si te resulta útil el contenido y quieres estar al tanto de todo lo nuevo, 
-              ¡mandame un mensaje! Me encanta conocer a otros juniors y saber en qué etapa estás.
+              Si te resulta útil el contenido, ¡mandame un mensaje! Al registrarte, te enviaré mis libros y recursos recomendados directamente a tu email.
             </p>
-            
             <div className="d-flex flex-column align-items-center gap-3">
-              <Link to="/signup" className="btn btn-success btn-lg">
-                Registrate y unite
-              </Link>
-              <p className="text-muted small">
-                O simplemente saludame desde el formulario, ¡leo todos los mensajes!
-              </p>
+              <Link to="/signup" className="btn btn-success btn-lg">Registrate y recibí los recursos</Link>
             </div>
-
-            <img 
-              src="/images/conecta-tejr.png" 
-              alt="Promoción Conecta-te JR" 
-              className="img-conectatejr mt-4" 
-              style={{ maxWidth: "350px" }} 
-            />
           </Col>
         </Row>
       </Container>

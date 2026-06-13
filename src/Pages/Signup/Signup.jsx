@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Form, Button, Alert, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Form, Alert, Spinner } from "react-bootstrap";
 import "../../Styles/styles.scss";
 
 function Signup() {
@@ -8,7 +8,6 @@ function Signup() {
   const [enviando, setEnviando] = useState(false);
   const [exito, setExito] = useState(null);
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
 
   const handleChange = (e) =>
@@ -36,7 +35,8 @@ function Signup() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Error en el registro");
 
-      navigate("/login");
+      setExito("¡Registro exitoso! Ya podés iniciar sesión.");
+      setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
       setError(err.message || "No se pudo registrar el usuario.");
     } finally {
@@ -45,77 +45,63 @@ function Signup() {
   };
 
   return (
-    <Container>
+    <Container className="py-5">
       <Row className="align-items-center g-4">
-        {/* Col izquierda */}
+        {/* Columna Izquierda */}
         <Col md={6}>
-          <h2 className="fw-bold mb-3">Conecta-te JR</h2>
-          <p className="text-muted">
-            Espacio para compartir proceso, experiencias y aprendizajes entre
-            developers junior.
+          <h2 className="fw-bold mb-3">¿Te sumás a CONECTA JR?</h2>
+          <p className="text-muted fs-5">
+            Creá tu cuenta y accedé a nuestra comunidad de developers junior. 
+            Al registrarte, te enviaré por email una selección de los libros y recursos que uso para aprender React y mejorar mi lógica. 🚀
           </p>
-          <a
-            href="https://paypal.me/vanesapaolasoria"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-warning fw-bold"
-          >
-            Invitar a un cafecito ☕
-          </a>
+          
+          {/* Bloque de aporte voluntario integrado */}
+          <div className="mt-4 p-3 bg-light rounded text-center border">
+            <p className="mb-2 small text-muted">
+              ¿Te gusta lo que construyo? Un pequeño aporte me ayuda muchísimo a seguir creando contenido para la comunidad.
+            </p>
+            <a
+              href="https://paypal.me/vanesapaolasoria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline-warning btn-sm fw-bold"
+            >
+              Invitar un cafecito (o lo que puedas) ☕
+            </a>
+          </div>
         </Col>
 
-        {/* Col derecha */}
+        {/* Columna Derecha */}
         <Col md={6}>
           <div className="contact-card p-4 rounded-4 shadow-lg">
             <h2 className="text-center mb-3 fw-bold">Crear Cuenta</h2>
-
+            
             {exito && <Alert variant="success">{exito}</Alert>}
             {error && <Alert variant="danger">{error}</Alert>}
-
+            
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="nombre"
-                  value={formData.nombre}
-                  onChange={handleChange}
-                  required
-                />
+                <Form.Control type="text" name="nombre" value={formData.nombre} onChange={handleChange} required />
               </Form.Group>
-
+              
               <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
               </Form.Group>
-
+              
               <Form.Group className="mb-4">
                 <Form.Label>Contraseña</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
+                <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} required />
               </Form.Group>
-
-             <button type="submit" className="btn-conecta w-100" disabled={enviando}>
-                {enviando ? "Registrando..." : "Registrarse"}
-             </button>
+              
+              <button type="submit" className="btn-conecta w-100" disabled={enviando}>
+                {enviando ? <><Spinner animation="border" size="sm" className="me-2"/> Registrando...</> : "Registrarse"}
+              </button>
             </Form>
-
+            
             <p className="text-center mt-3">
-              ¿Ya tenés cuenta?{" "}
-              <Link to="/login" className="fw-bold">
-                Iniciá sesión
-              </Link>
+              ¿Ya tenés cuenta? <Link to="/login" className="fw-bold">Iniciá sesión</Link>
             </p>
           </div>
         </Col>
