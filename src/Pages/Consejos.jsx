@@ -1,52 +1,90 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ResourceCard from "../components/ExperinceCard/ResourceCard";
 import YoutubeCard from "../components/ExperinceCard/YoutubeCard";
+
+const DATA_SOURCES = [
+  { url: "/data/consejos.json", key: "consejos" },
+  { url: "/data/resources.json", key: "plataformas" },
+  { url: "/data/youtubers.json", key: "youtubers" },
+];
+
+function ResourceSection({ title, items, renderCard }) {
+  return (
+    <section className="mb-5">
+      {title && <h3 className="text-center mt-5 mb-4">{title}</h3>}
+
+      <Row className="g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3">
+        {items.map((item) => (
+          <Col key={item.title}>
+            {renderCard(item)}
+          </Col>
+        ))}
+      </Row>
+    </section>
+  );
+}
 
 function Consejos() {
   const [consejos, setConsejos] = useState([]);
   const [resources, setResources] = useState([]);
   const [youtubers, setYoutubers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Carga de datos
-    fetch("/data/consejos.json").then(res => res.json()).then(data => setConsejos(data.consejos));
-    fetch("/data/resources.json").then(res => res.json()).then(data => setResources(data.plataformas));
-    fetch("/data/youtubers.json").then(res => res.json()).then(data => setYoutubers(data.youtubers));
+    async function loadData() {
+      try {
+        const [consejosRes, resourcesRes, youtubersRes] = await Promise.all(
+          DATA_SOURCES.map(({ url }) => fetch(url))
+        );
+
+        const [consejosData, resourcesData, youtubersData] = await Promise.all([
+          consejosRes.json(),
+          resourcesRes.json(),
+          youtubersRes.json(),
+        ]);
+
+        setConsejos(consejosData.consejos);
+        setResources(resourcesData.plataformas);
+        setYoutubers(youtubersData.youtubers);
+      } catch (error) {
+        console.error("Error cargando recursos:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadData();
   }, []);
+
+  if (loading) {
+    return (
+      <Container className="py-5 text-center">
+        <p>Cargando recursos...</p>
+      </Container>
+    );
+  }
 
   return (
     <Container className="py-5">
       <h1 className="text-center mb-5">Recursos para Programadores Junior</h1>
-      
-      {/* Sección 1: Consejos */}
-      <Row className="mb-5">
-        {consejos.map((c, i) => (
-          <Col md={4} key={i} className="mb-4">
-            <ResourceCard {...c} />
-          </Col>
-        ))}
-      </Row>
 
-      {/* Sección 2: Plataformas */}
-      <h3 className="text-center mt-5 mb-4">🧪 Plataformas para Practicar</h3>
-      <Row className="mb-5">
-        {resources.map((p, i) => (
-          <Col md={4} key={i} className="mb-4">
-            <ResourceCard {...p} />
-          </Col>
-        ))}
-      </Row>
+      <ResourceSection
+        items={consejos}
+        renderCard={(item) => <ResourceCard {...item} />}
+      />
 
-      {/* Sección 3: Youtubers */}
-      <h3 className="text-center mt-5 mb-4">🎥 Programadores en YouTube</h3>
-      <Row className="mb-5">
-        {youtubers.map((y, i) => (
-          <Col md={4} key={i} className="mb-4">
-            <YoutubeCard {...y} />
-          </Col>
-        ))}
-      </Row>
+      <ResourceSection
+        title="🧪 Plataformas para Practicar"
+        items={resources}
+        renderCard={(item) => <ResourceCard {...item} />}
+      />
+
+      <ResourceSection
+        title="🎥 Programadores en YouTube"
+        items={youtubers}
+        renderCard={(item) => <YoutubeCard {...item} />}
+      />
     </Container>
   );
 }
