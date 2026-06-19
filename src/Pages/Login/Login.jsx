@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Alert, Spinner } from "react-bootstrap";
 import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../../context/AuthContext.jsx";
 import "../../Styles/styles.scss";
 
 function Login() {
@@ -10,6 +11,31 @@ function Login() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const getInterviewAppUrl = () => {
+    return import.meta.env.VITE_INTERVIEW_APP_URL || "http://localhost:5174";
+  };
+
+  const redirectAfterLogin = () => {
+    const pendingPracticeStack = localStorage.getItem("pendingPracticeStack");
+    const pendingPracticeSource =
+      localStorage.getItem("pendingPracticeSource") || "roadmap";
+
+    if (pendingPracticeStack) {
+      const url = new URL(getInterviewAppUrl());
+      url.searchParams.set("stack", pendingPracticeStack);
+      url.searchParams.set("source", pendingPracticeSource);
+
+      localStorage.removeItem("pendingPracticeStack");
+      localStorage.removeItem("pendingPracticeSource");
+
+      window.location.href = url.toString();
+      return;
+    }
+
+    navigate("/");
+  };
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,17 +52,16 @@ function Login() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       if (!res.ok) throw new Error("Credenciales inválidas");
 
       const data = await res.json();
 
-      localStorage.setItem("userId", data.userId);
-      localStorage.setItem("token", data.token);
+      login({ token: data.token, userId: data.userId, userName: data.nombre });
 
-      navigate("/");
+      redirectAfterLogin();
     } catch (err) {
       setError("Email o contraseña incorrectos.");
     } finally {
@@ -56,17 +81,16 @@ function Login() {
           body: JSON.stringify({
             credential: credentialResponse.credential,
           }),
-        }
+        },
       );
 
       if (!res.ok) throw new Error("Error con Google login");
 
       const data = await res.json();
 
-      localStorage.setItem("userId", data.userId);
-      localStorage.setItem("token", data.token);
+      login({ token: data.token, userId: data.userId, userName: data.nombre });
 
-      navigate("/");
+      redirectAfterLogin();
     } catch (err) {
       setError("No se pudo iniciar sesión con Google.");
     }
@@ -84,7 +108,8 @@ function Login() {
             <div className="contact-card p-4 rounded-4 shadow-lg">
               <h2 className="text-center mb-3 fw-bold">Iniciar Sesión</h2>
               <p className="text-center text-muted mb-4">
-                Accedé para seguir el proceso y participar del espacio CONECTA JR.
+                Accedé para seguir el proceso y participar del espacio CONECTA
+                JR.
               </p>
 
               {error && (

@@ -1,14 +1,13 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
-
+import { useAuth } from "../../context/AuthContext";
 
 function CustomNavbar() {
   const navigate = useNavigate();
-  const isAuth = Boolean(localStorage.getItem("token"));
+  const { isAuthenticated, userName, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
+    logout();
     navigate("/login");
   };
 
@@ -29,10 +28,18 @@ function CustomNavbar() {
         <Navbar.Collapse id="navbar-nav">
           {/* Navegación principal */}
           <Nav className="me-auto">
-            <Nav.Link as={NavLink} to="/">Inicio</Nav.Link>
-            <Nav.Link as={NavLink} to="/consejos">Recursos</Nav.Link>
-            <Nav.Link as={NavLink} to="/conecta-en-corto">Conecta en corto</Nav.Link>
-            <Nav.Link as={NavLink} to="/contacto">Contacto</Nav.Link>
+            <Nav.Link as={NavLink} to="/">
+              Inicio
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/consejos">
+              Recursos
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/conecta-en-corto">
+              Conecta en corto
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/contacto">
+              Contacto
+            </Nav.Link>
           </Nav>
 
           {/* Acciones / CTA */}
@@ -47,34 +54,32 @@ function CustomNavbar() {
               🧭 Roadmap junior
             </Button>
 
-            {!isAuth ? (
+            {!isAuthenticated ? (
               <>
                 <Nav.Link as={NavLink} to="/login">
                   Login
                 </Nav.Link>
-                <Button
-                  as={NavLink}
-                  to="/signup"
-                  variant="success"
-                  size="sm"
-                >
+                <Button as={NavLink} to="/signup" variant="success" size="sm">
                   Registrarse
                 </Button>
               </>
             ) : (
-              <Button
-                variant="outline-light"
-                size="sm"
-                onClick={handleLogout}
-              >
-                Cerrar sesión
-              </Button>
+              <div className="d-flex align-items-center gap-2">
+                <span className="text-light small">
+                  Hola, {userName || "Developer"}
+                </span>
+                <Button
+                  variant="outline-light"
+                  size="sm"
+                  onClick={handleLogout}
+                >
+                  Cerrar sesión
+                </Button>
+              </div>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
-
-      
     </Navbar>
   );
 }

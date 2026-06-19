@@ -3,7 +3,7 @@ import { FaYoutube } from "react-icons/fa";
 
 const YoutubeCard = ({ title, description, link }) => {
   return (
-    <Card className="shadow-lg h-100">
+    <Card className="resource-card shadow-lg h-100">
       <Card.Body className="d-flex flex-column">
         <Card.Title className="mb-2">{title}</Card.Title>
         <Card.Text className="text-muted mb-3">{description}</Card.Text>

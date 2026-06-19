@@ -1,27 +1,38 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
+import {
+  clearAuthSession,
+  getAuthSession,
+  saveAuthSession,
+} from "../hooks/authSession";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [session, setSession] = useState(getAuthSession);
 
-  const login = (newToken) => {
-    localStorage.setItem("token", newToken);
-    setToken(newToken);
+  const login = ({ token, userId, userName = null }) => {
+    saveAuthSession({ token, userId, userName });
+    setSession({ token, userId, userName });
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
-    setToken(null);
+    clearAuthSession();
+    setSession({ token: null, userId: null, userName: null });
   };
 
-  const isAuthenticated = !!token;
-
-  return (
-    <AuthContext.Provider value={{ token, login, logout, isAuthenticated }}>
-      {children}
-    </AuthContext.Provider>
+  const value = useMemo(
+    () => ({
+      token: session.token,
+      userId: session.userId,
+      userName: session.userName,
+      isAuthenticated: Boolean(session.token),
+      login,
+      logout,
+    }),
+    [session],
   );
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => useContext(AuthContext);

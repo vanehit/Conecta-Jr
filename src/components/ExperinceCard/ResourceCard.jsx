@@ -5,14 +5,9 @@ const ResourceCard = ({ title, description, image, link, links }) => {
   const hasLinks = Boolean(link || links?.length);
 
   return (
-    <Card className="shadow-lg h-100">
+    <Card className="resource-card shadow-lg h-100">
       {image && (
-        <Card.Img
-          variant="top"
-          src={image}
-          alt={title}
-          style={{ objectFit: "cover", maxHeight: "200px" }}
-        />
+        <Card.Img variant="top" src={image} alt={title} />
       )}
 
       <Card.Body className="d-flex flex-column">
